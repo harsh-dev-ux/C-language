@@ -4,28 +4,30 @@
 int main(){
 
 
-    //FIXME: Right align numbers with a width of 3
+    //FIXME: arithmetic operation
+
+    int a = 10;
+    int b = 20;
+    int z =0;
+
+
+    //z = a + b;
+    z = a-b;
+    printf("the value of z is %d\n", z);
+
+
+    
+   
+    
+
 
    
-    int num1 = 1;
-    int num2 = 10;
-    int num3 = 100;
-    int num4 = 1000;
-
-
-    printf("%3d\n", num1);
-    printf("%3d\n", num2);
-    printf("%3d\n", num3);
-    printf("%3d\n", num4);
+    
 
     return 0;
 
 
     
-
-
-
-
 
     }
 
