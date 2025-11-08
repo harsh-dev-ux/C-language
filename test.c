@@ -1,35 +1,22 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdbool.h>
 
 
 int main() {
 
+    float price = 10.00;
+    bool isStudent = 1;
+    bool isSenior = 0;
+    bool isStudent = 0;
+    bool is 
 
-
-    char name[50] = "";
-
-    printf("Enter your name: ");
-    fgets(name, sizeof(name), stdin);
-    name[strlen(name) - 1] = '\0'; // Remove the newline character
-
-    if(strlen(name) ==0 ){
-        printf("You did not enter a name.\n");
-}
-
-else{
-    printf("Hello, %s", name);
-}
-
-
-
-
-       
-
-
+    if(isStudent){
+        printf("You get a student discount of 10%\n");
+        price *= 0.9;
+    }
+        printf("The price of a ticket is: $%.2f\n", price);
     
-    
-  
-    return 0;
 
+  return 0;
 
 }
