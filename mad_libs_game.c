@@ -22,7 +22,7 @@ fgets(noun, sizeof(noun), stdin);
 noun[strlen(noun) - 1] = '\0'; //NOTE: Remove newline character
 
 printf("Enter an adjective(description): ");
-fgets(adjective2, sizeof(adjective2), stdin);
+fgets(adjective2, sizeof(adjective2), stdin); 
 adjective2[strlen(adjective2) - 1] = '\0'; //NOTE: Remove newline character
 
 printf("Enter a verb(ending w/ -ing): ");
