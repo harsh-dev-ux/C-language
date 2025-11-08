@@ -1,21 +1,17 @@
 #include <stdio.h>
-#include <math.h>
-
+#include <bool.h>
 
 int main() {
+
+
+        
+
+
+
+
     
-
     
-
-
-    
-    
-    
-   
-
-
-    printf("%f\n", x);
-
+  
     return 0;
 
 
