@@ -1,9 +1,5 @@
 # 🏛️ C Systems Programming & Logic Foundation
 
-<<<<<<< HEAD
-in progress......
-
-
 =======
 > *A structured repository containing 12 fundamental system modules and algorithms implemented in C. This codebase represents the transition from basic syntax to low-level logic building.*
 
