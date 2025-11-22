@@ -4,9 +4,7 @@
 
 int main(){ 
 
-    int age = 25;
-
-    printf("%p", &age);
+   
 
 
 
