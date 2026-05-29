@@ -1,15 +1,21 @@
 # C Programming Journey 🚀
 
-This repository contains my practice codes and projects while learning C as my **first programming language**. 
+This repository contains my practice codes and projects while learning C as my **first programming language**.
 
 All the concepts and projects in this repository were learned and built by completing the **C Programming Course** by [Bro Code on YouTube](https://www.youtube.com/@BroCodez).
 
 ---
 
-## 📂 Project List
+## 📂 Repository Structure
 
-Here is a list of the simple programs and games I built during the course:
+The files in this repository are organized as follows:
 
+### 🔄 [revesion/](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language/revesion)
+Contains basic syntax practice and core concepts learned during the course:
+*   **[Core_Concepts.c](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language/revesion/Core_Concepts.c)**: A comprehensive reference file containing basic syntax, variables, data types, operators, loops, and control flow in C.
+
+### 📁 [project/](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language/project)
+Contains all the interactive games and utility projects:
 *   **01_shopping_cart_program.c**: A simple interactive shopping cart program.
 *   **02_mad_libs_game.c**: A fun Mad Libs game using string inputs.
 *   **03_circle_calculator_program.c**: Calculates the circumference and area of a circle.
