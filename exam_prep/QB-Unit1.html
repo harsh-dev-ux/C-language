@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QB Unit 1 - Introduction & Planning | C Programming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg: #0f0f1a;
+            --card: #1a1a2e;
+            --accent: #a855f7;
+            --text: #f1f5f9;
+            --text2: #94a3b8;
+            --border: #334155;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 30px;
+        }
+        
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: var(--text2);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+        
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.15rem;
+            line-height: 1.5;
+        }
+        
+        .card h4 {
+            color: #818cf8;
+            margin: 20px 0 12px;
+            font-size: 1rem;
+        }
+        
+        .card p { color: var(--text2); margin-bottom: 12px; }
+        
+        .card ul, .card ol { margin-left: 25px; margin-bottom: 15px; }
+        
+        .card li { color: var(--text2); margin-bottom: 8px; line-height: 1.7; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        
+        th, td { padding: 12px 16px; text-align: left; border: 1px solid var(--border); }
+        
+        th { background: rgba(139, 92, 246, 0.2); color: var(--accent); font-weight: 600; }
+        
+        td { color: var(--text2); }
+        
+        pre {
+            background: #0d1117;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border: 1px solid #30363d;
+            position: relative;
+        }
+        
+        pre .lang-label {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            font-size: 0.75rem;
+            color: #8b949e;
+            background: #21262d;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #e6edf3;
+        }
+        
+        .keyword { color: #ff79c6; }
+        .type { color: #ff79c6; }
+        .func { color: #50fa7b; }
+        .string { color: #f1fa8c; }
+        .comment { color: #6272a4; font-style: italic; }
+        .number { color: #bd93f9; }
+        
+        .back-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .back-btn:hover { background: #9333ea; }
+        
+        .answer-label {
+            color: #10b981;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .mermaid-box {
+            background: #161b22;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Notes
+        </a>
+        
+        <h1>📝 Question Bank - Unit 1</h1>
+        <p class="subtitle">Introduction to Program Planning & C Programming • 15 Questions • Complete Q&A</p>
+
+        <!-- Question 1 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q1. What is an algorithm? Explain its characteristics.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Algorithm:</strong> A step-by-step procedure to solve a problem or perform a task.</p>
+            
+            <h4>Characteristics:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Characteristic</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Input</strong></td><td>Zero or more inputs</td></tr>
+                    <tr><td><strong>Output</strong></td><td>At least one output</td></tr>
+                    <tr><td><strong>Definiteness</strong></td><td>Each step is clear and unambiguous</td></tr>
+                    <tr><td><strong>Finiteness</strong></td><td>Must terminate after finite steps</td></tr>
+                    <tr><td><strong>Effectiveness</strong></td><td>Each step must be basic and feasible</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q2. Write an algorithm to find the sum of two numbers.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">Algorithm</span><code>Step 1: START
+
+Step 2: Declare variables num1, num2, sum
+
+Step 3: Read values of num1 and num2
+
+Step 4: Calculate sum = num1 + num2
+
+Step 5: Display sum
+
+Step 6: STOP</code></pre>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q3. What is a flowchart? List its advantages and disadvantages.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Flowchart:</strong> A graphical representation of an algorithm using standard symbols.</p>
+            
+            <h4>Advantages:</h4>
+            <ul>
+                <li>Easy to understand and communicate</li>
+                <li>Helps in debugging and documentation</li>
+                <li>Provides visual clarity of program flow</li>
+                <li>Useful for training new programmers</li>
+            </ul>
+            
+            <h4>Disadvantages:</h4>
+            <ul>
+                <li>Time-consuming for complex programs</li>
+                <li>Difficult to modify once drawn</li>
+                <li>No standard rules for level of detail</li>
+                <li>Can become confusing for large programs</li>
+            </ul>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q4. Draw the flowchart symbols and their meanings.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>⬭ Oval</td><td>Terminal</td><td>Start/Stop</td></tr>
+                    <tr><td>▭ Rectangle</td><td>Process</td><td>Processing/Calculation</td></tr>
+                    <tr><td>◇ Diamond</td><td>Decision</td><td>Condition/Branching</td></tr>
+                    <tr><td>▱ Parallelogram</td><td>Input/Output</td><td>Read/Display data</td></tr>
+                    <tr><td>→ Arrow</td><td>Flow line</td><td>Direction of flow</td></tr>
+                    <tr><td>⬡ Hexagon</td><td>Preparation</td><td>Initialization</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q5. Write a brief history of C programming language.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1969-1973</td><td>C developed by Dennis Ritchie at Bell Labs</td></tr>
+                    <tr><td>1972</td><td>Most features added, used for UNIX</td></tr>
+                    <tr><td>1978</td><td>K&R C - First book published</td></tr>
+                    <tr><td>1989</td><td>ANSI C (C89) standardized</td></tr>
+                    <tr><td>1990</td><td>ISO C standardized</td></tr>
+                    <tr><td>1999</td><td>C99 standard released</td></tr>
+                    <tr><td>2011</td><td>C11 standard released</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q6. Explain the basic structure of a C program with an example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="comment">/* Documentation Section */</span>
+<span class="comment">// Program to add two numbers</span>
+
+<span class="comment">/* Preprocessor Directives */</span>
+<span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="comment">/* Global Declarations */</span>
+<span class="type">int</span> result;
+
+<span class="comment">/* Main Function */</span>
+<span class="type">int</span> <span class="func">main</span>() {
+    
+    <span class="comment">/* Local Declarations */</span>
+    <span class="type">int</span> a = <span class="number">10</span>;
+    <span class="type">int</span> b = <span class="number">20</span>;
+    
+    <span class="comment">/* Executable Statements */</span>
+    result = a + b;
+    
+    <span class="func">printf</span>(<span class="string">"Sum = %d\n"</span>, result);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+
+            <h4>Sections:</h4>
+            <ul>
+                <li><strong>Documentation:</strong> Comments describing program</li>
+                <li><strong>Preprocessor:</strong> Include files and macros</li>
+                <li><strong>Global Declarations:</strong> Variables accessible everywhere</li>
+                <li><strong>Main Function:</strong> Program execution starts here</li>
+                <li><strong>Local Declarations:</strong> Variables inside functions</li>
+                <li><strong>Executable Statements:</strong> Actual program logic</li>
+            </ul>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q7. What are tokens in C? List different types of tokens.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Tokens:</strong> The smallest individual units in a C program.</p>
+            
+            <h4>Types of Tokens:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Token Type</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Keywords</td><td>int, float, if, else, while, return</td></tr>
+                    <tr><td>Identifiers</td><td>variable names, function names</td></tr>
+                    <tr><td>Constants</td><td>10, 3.14, 'A', "Hello"</td></tr>
+                    <tr><td>Operators</td><td>+, -, *, /, =, ==, &&</td></tr>
+                    <tr><td>Special Symbols</td><td>{ }, ( ), [ ], ; , :</td></tr>
+                    <tr><td>Strings</td><td>"Hello World"</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q8. Explain the different data types in C.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Primary Data Types:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Range</th>
+                        <th>Format</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>int</td><td>4 bytes</td><td>-2,147,483,648 to 2,147,483,647</td><td>%d</td></tr>
+                    <tr><td>float</td><td>4 bytes</td><td>3.4E-38 to 3.4E+38</td><td>%f</td></tr>
+                    <tr><td>double</td><td>8 bytes</td><td>1.7E-308 to 1.7E+308</td><td>%lf</td></tr>
+                    <tr><td>char</td><td>1 byte</td><td>-128 to 127</td><td>%c</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="type">int</span> age = <span class="number">25</span>;
+<span class="type">float</span> salary = <span class="number">50000.50</span>;
+<span class="type">double</span> pi = <span class="number">3.14159265359</span>;
+<span class="type">char</span> grade = <span class="string">'A'</span>;</code></pre>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q9. What are variables? Explain variable declaration and initialization.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Variable:</strong> A named memory location that stores a value which can be modified.</p>
+            
+            <h4>Declaration Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code>data_type variable_name;</code></pre>
+            
+            <h4>Initialization:</h4>
+            <pre><span class="lang-label">Syntax</span><code>data_type variable_name = value;</code></pre>
+            
+            <h4>Examples:</h4>
+            <pre><span class="lang-label">C</span><code><span class="comment">// Declaration only</span>
+<span class="type">int</span> age;
+<span class="type">float</span> salary;
+<span class="type">char</span> grade;
+
+<span class="comment">// Declaration with initialization</span>
+<span class="type">int</span> count = <span class="number">0</span>;
+<span class="type">float</span> price = <span class="number">99.99</span>;
+<span class="type">char</span> initial = <span class="string">'A'</span>;
+
+<span class="comment">// Multiple declarations</span>
+<span class="type">int</span> a, b, c;
+<span class="type">int</span> x = <span class="number">10</span>, y = <span class="number">20</span>, z = <span class="number">30</span>;</code></pre>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q10. Explain constants in C with examples.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Constants:</strong> Fixed values that cannot be changed during program execution.</p>
+            
+            <h4>Types of Constants:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Integer Constants</td><td>10, -25, 0</td></tr>
+                    <tr><td>Floating Constants</td><td>3.14, -2.5, 1.0e5</td></tr>
+                    <tr><td>Character Constants</td><td>'A', 'b', '9'</td></tr>
+                    <tr><td>String Constants</td><td>"Hello", "World"</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Defining Constants:</h4>
+            <pre><span class="lang-label">C</span><code><span class="comment">// Using #define (preprocessor)</span>
+<span class="keyword">#define</span> PI <span class="number">3.14159</span>
+<span class="keyword">#define</span> MAX_SIZE <span class="number">100</span>
+
+<span class="comment">// Using const keyword</span>
+<span class="keyword">const</span> <span class="type">int</span> MAX = <span class="number">100</span>;
+<span class="keyword">const</span> <span class="type">float</span> PI = <span class="number">3.14159</span>;</code></pre>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q11. Explain printf() and scanf() functions with examples.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>printf() - Output Function:</h4>
+            <p>Used to display output on the screen.</p>
+            <pre><span class="lang-label">Syntax</span><code>printf("format string", arguments);</code></pre>
+            
+            <h4>scanf() - Input Function:</h4>
+            <p>Used to read input from the keyboard.</p>
+            <pre><span class="lang-label">Syntax</span><code>scanf("format string", &amp;variable);</code></pre>
+            
+            <h4>Example Program:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> age;
+    <span class="type">char</span> name[<span class="number">50</span>];
+    
+    <span class="comment">// Output</span>
+    <span class="func">printf</span>(<span class="string">"Enter your name: "</span>);
+    
+    <span class="comment">// Input string</span>
+    <span class="func">scanf</span>(<span class="string">"%s"</span>, name);
+    
+    <span class="func">printf</span>(<span class="string">"Enter your age: "</span>);
+    
+    <span class="comment">// Input integer</span>
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;age);
+    
+    <span class="comment">// Output with formatting</span>
+    <span class="func">printf</span>(<span class="string">"Hello %s, you are %d years old.\n"</span>, name, age);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q12. List all format specifiers used in C.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Specifier</th>
+                        <th>Data Type</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>%d</td><td>Integer (signed)</td><td>printf("%d", 10);</td></tr>
+                    <tr><td>%u</td><td>Unsigned integer</td><td>printf("%u", 100);</td></tr>
+                    <tr><td>%f</td><td>Float</td><td>printf("%f", 3.14);</td></tr>
+                    <tr><td>%lf</td><td>Double</td><td>printf("%lf", 3.14159);</td></tr>
+                    <tr><td>%c</td><td>Character</td><td>printf("%c", 'A');</td></tr>
+                    <tr><td>%s</td><td>String</td><td>printf("%s", "Hello");</td></tr>
+                    <tr><td>%x</td><td>Hexadecimal</td><td>printf("%x", 255);</td></tr>
+                    <tr><td>%o</td><td>Octal</td><td>printf("%o", 8);</td></tr>
+                    <tr><td>%p</td><td>Pointer address</td><td>printf("%p", &x);</td></tr>
+                    <tr><td>%%</td><td>Print % symbol</td><td>printf("%%");</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Question 13 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q13. Write a C program to swap two numbers without using a third variable.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> a, b;
+    
+    <span class="func">printf</span>(<span class="string">"Enter two numbers: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d %d"</span>, &amp;a, &amp;b);
+    
+    <span class="func">printf</span>(<span class="string">"Before swap: a = %d, b = %d\n"</span>, a, b);
+    
+    <span class="comment">// Swapping without third variable</span>
+    a = a + b;
+    b = a - b;
+    a = a - b;
+    
+    <span class="func">printf</span>(<span class="string">"After swap: a = %d, b = %d\n"</span>, a, b);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 14 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q14. What are storage classes in C? Explain each with examples.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Storage Classes:</strong> Define the scope, lifetime, and visibility of variables.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Storage Class</th>
+                        <th>Scope</th>
+                        <th>Lifetime</th>
+                        <th>Default Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>auto</td><td>Local</td><td>Within block</td><td>Garbage</td></tr>
+                    <tr><td>register</td><td>Local</td><td>Within block</td><td>Garbage</td></tr>
+                    <tr><td>static</td><td>Local</td><td>Entire program</td><td>0</td></tr>
+                    <tr><td>extern</td><td>Global</td><td>Entire program</td><td>0</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="keyword">extern</span> <span class="type">int</span> globalVar;  <span class="comment">// External variable</span>
+
+<span class="type">void</span> <span class="func">counter</span>() {
+    <span class="keyword">static</span> <span class="type">int</span> count = <span class="number">0</span>;  <span class="comment">// Static - retains value</span>
+    count++;
+    <span class="func">printf</span>(<span class="string">"Count = %d\n"</span>, count);
+}
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="keyword">auto</span> <span class="type">int</span> x = <span class="number">10</span>;       <span class="comment">// Auto - default for local</span>
+    <span class="keyword">register</span> <span class="type">int</span> i;        <span class="comment">// Register - stored in CPU register</span>
+    
+    <span class="func">counter</span>();  <span class="comment">// Output: Count = 1</span>
+    <span class="func">counter</span>();  <span class="comment">// Output: Count = 2</span>
+    <span class="func">counter</span>();  <span class="comment">// Output: Count = 3</span>
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 15 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q15. Draw a flowchart to find the largest of three numbers.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <div class="mermaid-box">
+                <div class="mermaid">
+flowchart TD
+    A([START]) --> B[/Read A, B, C/]
+    B --> C{A > B?}
+    C -->|Yes| D{A > C?}
+    C -->|No| E{B > C?}
+    D -->|Yes| F[A is Largest]
+    D -->|No| G[C is Largest]
+    E -->|Yes| H[B is Largest]
+    E -->|No| I[C is Largest]
+    F --> J[/Display Largest/]
+    G --> J
+    H --> J
+    I --> J
+    J --> K([STOP])
+                </div>
+            </div>
+            
+            <h4>C Program:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> a, b, c, largest;
+    
+    <span class="func">printf</span>(<span class="string">"Enter three numbers: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;a, &amp;b, &amp;c);
+    
+    <span class="keyword">if</span> (a > b) {
+        <span class="keyword">if</span> (a > c)
+            largest = a;
+        <span class="keyword">else</span>
+            largest = c;
+    } 
+    <span class="keyword">else</span> {
+        <span class="keyword">if</span> (b > c)
+            largest = b;
+        <span class="keyword">else</span>
+            largest = c;
+    }
+    
+    <span class="func">printf</span>(<span class="string">"Largest number is: %d\n"</span>, largest);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+    </div>
+    
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark'
+        });
+    </script>
+</body>
+</html>

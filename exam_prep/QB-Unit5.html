@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QB Unit 5 - Functions & Structures | C Programming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0f0f1a;
+            --card: #1a1a2e;
+            --accent: #a855f7;
+            --text: #f1f5f9;
+            --text2: #94a3b8;
+            --border: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 30px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: var(--text2);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+        
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.15rem;
+            line-height: 1.5;
+        }
+        
+        .card h4 {
+            color: #818cf8;
+            margin: 20px 0 12px;
+            font-size: 1rem;
+        }
+        
+        .card p {
+            color: var(--text2);
+            margin-bottom: 12px;
+        }
+        
+        .card ul, .card ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .card li {
+            color: var(--text2);
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+        
+        th {
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        td {
+            color: var(--text2);
+        }
+        
+        pre {
+            background: #0d1117;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border: 1px solid #30363d;
+            position: relative;
+        }
+        
+        pre .lang-label {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            font-size: 0.75rem;
+            color: #8b949e;
+            background: #21262d;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #e6edf3;
+        }
+        
+        .keyword { color: #ff79c6; }
+        .type { color: #ff79c6; }
+        .func { color: #50fa7b; }
+        .string { color: #f1fa8c; }
+        .comment { color: #6272a4; font-style: italic; }
+        .number { color: #bd93f9; }
+        
+        .back-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #9333ea;
+        }
+        
+        .answer-label {
+            color: #10b981;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Notes
+        </a>
+        
+        <h1>📝 Question Bank - Unit 5</h1>
+        <p class="subtitle">User Defined Functions & Structures • 20 Questions • Complete Q&A</p>
+
+        <!-- Question 1 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q1. What is a user-defined function? Why is it necessary to use user-defined functions in a program?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>User-defined function:</strong> A function created by the programmer to perform a specific task.</p>
+            
+            <h4>Necessity:</h4>
+            <ul>
+                <li>Promotes modular programming</li>
+                <li>Enhances code reusability</li>
+                <li>Simplifies debugging and testing</li>
+                <li>Improves readability and maintainability</li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q2. What are the advantages of using user-defined functions in programming?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <ul>
+                <li><strong>Reusability:</strong> Write once, use multiple times</li>
+                <li><strong>Modularity:</strong> Break down complex problems into smaller tasks</li>
+                <li><strong>Ease of maintenance:</strong> Changes in one function do not affect others</li>
+                <li><strong>Abstraction:</strong> Hide implementation details</li>
+                <li><strong>Collaboration:</strong> Different programmers can work on different functions</li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q3. Create a program that uses multiple user-defined functions to perform different tasks.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">void</span> <span class="func">greet</span>() {
+    <span class="func">printf</span>(<span class="string">"Hello! "</span>);
+}
+
+<span class="type">int</span> <span class="func">add</span>(<span class="type">int</span> a, <span class="type">int</span> b) {
+    <span class="keyword">return</span> a + b;
+}
+
+<span class="type">void</span> <span class="func">display</span>(<span class="type">int</span> result) {
+    <span class="func">printf</span>(<span class="string">"Result: %d\n"</span>, result);
+}
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="func">greet</span>();
+    
+    <span class="type">int</span> sum = <span class="func">add</span>(<span class="number">5</span>, <span class="number">3</span>);
+    
+    <span class="func">display</span>(sum);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q4. What are the key elements of a user-defined function in C?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <ul>
+                <li><strong>Return type</strong> - Data type of returned value</li>
+                <li><strong>Function name</strong> - Identifier for the function</li>
+                <li><strong>Parameter list</strong> (optional) - Input values</li>
+                <li><strong>Function body</strong> - Executable statements</li>
+                <li><strong>Return statement</strong> (optional) - Value to return</li>
+            </ul>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q5. Explain the structure of a function definition in C.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code>return_type function_name(parameters) {
+    <span class="comment">// function body</span>
+    <span class="comment">// statements</span>
+    <span class="keyword">return</span> value;  <span class="comment">// if return_type is not void</span>
+}</code></pre>
+
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="type">int</span> <span class="func">square</span>(<span class="type">int</span> n) {
+    <span class="keyword">return</span> n * n;
+}</code></pre>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q6. What is a function return type? How is it used in function definitions?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p>The <strong>return type</strong> specifies the type of value returned by the function. It is declared before the function name.</p>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="type">int</span> <span class="func">getAge</span>() {
+    <span class="keyword">return</span> <span class="number">25</span>;
+}</code></pre>
+            
+            <p>If no value is returned, use <code>void</code>.</p>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q7. Differentiate between a function call and a function declaration.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function Declaration</th>
+                        <th>Function Call</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tells compiler about function</td>
+                        <td>Executes the function</td>
+                    </tr>
+                    <tr>
+                        <td>Ends with semicolon</td>
+                        <td>Ends with semicolon</td>
+                    </tr>
+                    <tr>
+                        <td>Example: <code>int sum(int a, int b);</code></td>
+                        <td>Example: <code>sum(5, 3);</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q8. Write a C program that demonstrates a function with no arguments and no return value.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">void</span> <span class="func">greet</span>() {
+    <span class="func">printf</span>(<span class="string">"Hello, World!\n"</span>);
+}
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="func">greet</span>();
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q9. Write a C program that demonstrates a function with arguments but no return value.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">void</span> <span class="func">printSum</span>(<span class="type">int</span> a, <span class="type">int</span> b) {
+    <span class="func">printf</span>(<span class="string">"Sum: %d\n"</span>, a + b);
+}
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="func">printSum</span>(<span class="number">10</span>, <span class="number">20</span>);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q10. Write a C program that demonstrates a function with arguments and a return value.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">multiply</span>(<span class="type">int</span> a, <span class="type">int</span> b) {
+    <span class="keyword">return</span> a * b;
+}
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> result = <span class="func">multiply</span>(<span class="number">4</span>, <span class="number">5</span>);
+    
+    <span class="func">printf</span>(<span class="string">"Product: %d\n"</span>, result);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q11. How do you declare a function that returns a value but takes no arguments? Provide an example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">getNumber</span>() {
+    <span class="keyword">return</span> <span class="number">42</span>;
+}
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> num = <span class="func">getNumber</span>();
+    
+    <span class="func">printf</span>(<span class="string">"%d\n"</span>, num);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q12. Explain the concept of functions that return multiple values. How can this be achieved in C?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p>C does not directly support returning multiple values. However, it can be achieved using:</p>
+            
+            <ul>
+                <li><strong>Pointers</strong></li>
+                <li><strong>Structures</strong></li>
+                <li><strong>Arrays</strong></li>
+            </ul>
+            
+            <h4>Example using pointers:</h4>
+            <pre><span class="lang-label">C</span><code><span class="type">void</span> <span class="func">getTwoValues</span>(<span class="type">int</span> *a, <span class="type">int</span> *b) {
+    *a = <span class="number">10</span>;
+    *b = <span class="number">20</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 13 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q13. What is function nesting? Give an example of a program where one function calls another function.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Function nesting</strong> is when one function calls another within its body.</p>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">void</span> <span class="func">inner</span>() {
+    <span class="func">printf</span>(<span class="string">"Inside inner function.\n"</span>);
+}
+
+<span class="type">void</span> <span class="func">outer</span>() {
+    <span class="func">printf</span>(<span class="string">"Inside outer function.\n"</span>);
+    <span class="func">inner</span>();
+}
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="func">outer</span>();
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 14 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q14. What is recursion in C? Write a recursive function to find the factorial of a number.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Recursion</strong> is a process where a function calls itself.</p>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">factorial</span>(<span class="type">int</span> n) {
+    <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>)
+        <span class="keyword">return</span> <span class="number">1</span>;
+    <span class="keyword">else</span>
+        <span class="keyword">return</span> n * <span class="func">factorial</span>(n - <span class="number">1</span>);
+}
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="func">printf</span>(<span class="string">"Factorial of 5: %d\n"</span>, <span class="func">factorial</span>(<span class="number">5</span>));
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Question 15 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q15. Explain the process of function declaration. How is it different from a function definition?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Function Declaration:</strong> Informs the compiler about the function's name, return type, and parameters.</p>
+            <p>Example: <code>int add(int, int);</code></p>
+            
+            <p><strong>Function Definition:</strong> Contains the actual implementation of the function.</p>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="type">int</span> <span class="func">add</span>(<span class="type">int</span> a, <span class="type">int</span> b) {
+    <span class="keyword">return</span> a + b;
+}</code></pre>
+        </div>
+
+        <!-- Question 16 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q16. What is a structure in C? Why do we use structures in programming?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p>A <strong>structure</strong> is a user-defined data type that groups related variables of different data types.</p>
+            
+            <h4>Why use structures?</h4>
+            <ul>
+                <li>Organize complex data</li>
+                <li>Represent real-world entities (e.g., Student, Employee)</li>
+                <li>Pass grouped data to functions easily</li>
+            </ul>
+        </div>
+
+        <!-- Question 17 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q17. How do you declare a structure type in C? Provide an example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">struct</span> Student {
+    <span class="type">int</span> rollNo;
+    <span class="type">char</span> name[<span class="number">50</span>];
+    <span class="type">float</span> marks;
+};</code></pre>
+        </div>
+
+        <!-- Question 18 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q18. How do you reference individual members of a structure? Illustrate with an example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p>Use the <strong>dot (.) operator</strong>.</p>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">struct</span> Student s1;
+
+s1.rollNo = <span class="number">1</span>;
+<span class="func">strcpy</span>(s1.name, <span class="string">"John"</span>);
+s1.marks = <span class="number">85.5</span>;</code></pre>
+        </div>
+
+        <!-- Question 19 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q19. What is the syntax for referencing an entire structure? Provide an example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p>You can assign one structure variable to another of the same type.</p>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">struct</span> Student s1 = {<span class="number">1</span>, <span class="string">"John"</span>, <span class="number">85.5</span>};
+<span class="keyword">struct</span> Student s2;
+
+s2 = s1;  <span class="comment">// Entire structure copied</span></code></pre>
+        </div>
+
+        <!-- Question 20 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q20. How do you initialize a structure in C? Write an example program that initializes a structure.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="keyword">struct</span> Student {
+    <span class="type">int</span> rollNo;
+    <span class="type">char</span> name[<span class="number">50</span>];
+    <span class="type">float</span> marks;
+};
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="keyword">struct</span> Student s1 = {<span class="number">101</span>, <span class="string">"Alice"</span>, <span class="number">92.5</span>};
+    
+    <span class="func">printf</span>(<span class="string">"Roll No: %d\n"</span>, s1.rollNo);
+    <span class="func">printf</span>(<span class="string">"Name: %s\n"</span>, s1.name);
+    <span class="func">printf</span>(<span class="string">"Marks: %.2f\n"</span>, s1.marks);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+    </div>
+</body>
+</html>

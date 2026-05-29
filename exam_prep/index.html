@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Complete Notes | All Units | Made by Apela</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        :root{--bg:#0a0a12;--bg2:#12121f;--card:#161625;--primary:#6366f1;--secondary:#8b5cf6;--accent:#22d3ee;--text:#f1f5f9;--text2:#94a3b8;--muted:#64748b;--border:rgba(99,102,241,0.2);--success:#10b981;--warning:#f59e0b;--danger:#ef4444}
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;line-height:1.7;color:var(--text);background:var(--bg);min-height:100vh}
+        .container{display:flex;max-width:1600px;margin:0 auto;min-height:100vh}
+        .sidebar{width:280px;background:linear-gradient(180deg,#0f0f1a,#0a0a12);padding:20px;position:fixed;top:0;left:0;height:100vh;overflow-y:auto;border-right:1px solid var(--border);z-index:100}
+        .logo{text-align:center;margin-bottom:20px;padding-bottom:15px;border-bottom:1px solid var(--border)}
+        .logo h1{font-size:1.3rem;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .logo .author{font-size:0.9rem;color:var(--accent);margin-top:8px;font-weight:600}
+        .logo .college{font-size:0.75rem;color:var(--danger);margin-top:4px;font-style:italic}
+        .nav-section{margin-bottom:15px}
+        .nav-section h3{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;padding-left:10px}
+        .nav-links{list-style:none}
+        .nav-links li{margin-bottom:4px}
+        .nav-links a{display:flex;align-items:center;padding:10px 14px;color:var(--text2);text-decoration:none;border-radius:8px;transition:all 0.3s;font-size:0.85rem}
+        .nav-links a:hover{background:rgba(99,102,241,0.1);color:var(--text);transform:translateX(5px)}
+        .nav-links a.active{background:var(--primary);color:white}
+        .nav-links i{margin-right:10px;width:16px;text-align:center}
+        .main{flex:1;margin-left:280px;padding:30px 40px;max-height:100vh;overflow-y:auto}
+        .hero{text-align:center;padding:40px 0;margin-bottom:30px;border-bottom:1px solid var(--border)}
+        .hero h1{font-size:2.5rem;background:linear-gradient(135deg,var(--primary),var(--secondary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+        .hero .subtitle{color:var(--text2);font-size:1rem}
+        .hero .author-badge{display:inline-block;margin-top:15px;padding:8px 20px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50px;font-weight:600;font-size:0.9rem}
+        .unit-header{background:linear-gradient(135deg,var(--primary),var(--secondary));padding:30px;border-radius:16px;margin:40px 0 30px;text-align:center}
+        .unit-header h2{font-size:2rem;margin-bottom:8px}
+        .unit-header p{opacity:0.9;font-size:1rem}
+        .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px;transition:all 0.3s}
+        .card:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(0,0,0,0.3);border-color:rgba(99,102,241,0.4)}
+        .card h3{font-size:1.3rem;color:var(--text);margin-bottom:15px;display:flex;align-items:center;gap:10px}
+        .card h3 i{color:var(--accent)}
+        .card h4{font-size:1.1rem;color:var(--accent);margin:20px 0 10px;padding-left:12px;border-left:3px solid var(--accent)}
+        .card p{color:var(--text2);margin-bottom:12px}
+        .table-wrap{overflow-x:auto;margin:15px 0;border-radius:10px;border:1px solid var(--border)}
+        table{width:100%;border-collapse:collapse;background:var(--bg2)}
+        thead{background:linear-gradient(90deg,var(--primary),var(--secondary))}
+        th{padding:12px 15px;text-align:left;font-weight:600;color:white;font-size:0.8rem;text-transform:uppercase}
+        td{padding:12px 15px;border-bottom:1px solid var(--border);color:var(--text2)}
+        tr:hover td{background:rgba(99,102,241,0.05);color:var(--text)}
+        .code{background:#0d0d16;color:var(--text2);padding:15px;border-radius:10px;margin:15px 0;font-family:'Fira Code',monospace;font-size:0.85rem;border-left:4px solid var(--accent);overflow-x:auto;position:relative}
+        .code .lang{position:absolute;top:8px;right:10px;font-size:0.7rem;color:var(--muted);text-transform:uppercase}
+        .code .comment{color:var(--muted)}
+        .code .keyword{color:var(--accent)}
+        .code .func{color:var(--warning)}
+        .code .str{color:var(--success)}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px;margin:15px 0}
+        .grid-item{background:rgba(99,102,241,0.08);padding:18px;border-radius:10px;border:1px solid var(--border);transition:all 0.3s}
+        .grid-item:hover{background:rgba(99,102,241,0.15);transform:translateX(5px)}
+        .grid-item h5{color:var(--text);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+        .grid-item h5 i{color:var(--accent)}
+        .grid-item p{color:var(--text2);font-size:0.9rem;margin:0}
+        .badge{display:inline-block;padding:5px 12px;border-radius:20px;font-size:0.75rem;font-weight:500;margin:3px}
+        .badge-p{background:rgba(99,102,241,0.2);color:var(--primary)}
+        .badge-s{background:rgba(16,185,129,0.2);color:var(--success)}
+        .badge-w{background:rgba(245,158,11,0.2);color:var(--warning)}
+        .badge-d{background:rgba(239,68,68,0.2);color:var(--danger)}
+        .keywords{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;margin:15px 0}
+        .kw{background:rgba(99,102,241,0.1);padding:8px;border-radius:6px;text-align:center;font-family:'Fira Code',monospace;color:var(--accent);font-size:0.85rem;transition:all 0.3s}
+        .kw:hover{background:rgba(99,102,241,0.2);transform:scale(1.05)}
+        .tip{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:20px;border-radius:12px;margin:15px 0}
+        .tip h5{margin-bottom:10px;display:flex;align-items:center;gap:8px}
+        .tip ul{padding-left:20px}
+        .tip li{margin-bottom:5px;opacity:0.95}
+        .mermaid-box{background:var(--bg2);padding:20px;border-radius:12px;margin:15px 0;border:1px solid var(--border);overflow:auto}
+        .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:15px}
+        .tab{padding:10px 18px;background:rgba(99,102,241,0.1);border:1px solid var(--border);cursor:pointer;font-weight:500;color:var(--text2);transition:all 0.3s;border-radius:8px 8px 0 0;font-size:0.85rem}
+        .tab:hover{background:rgba(99,102,241,0.2);color:var(--text)}
+        .tab.active{background:var(--primary);color:white;border-color:var(--primary)}
+        .tab-content{display:none;animation:fadeIn 0.4s}
+        .tab-content.active{display:block}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        .footer{text-align:center;padding:30px;margin-top:40px;border-top:1px solid var(--border);color:var(--muted)}
+        .footer .heart{color:var(--danger)}
+        ::-webkit-scrollbar{width:8px;height:8px}
+        ::-webkit-scrollbar-track{background:var(--bg2)}
+        ::-webkit-scrollbar-thumb{background:var(--primary);border-radius:4px}
+        /* Mobile Menu Toggle Button */
+        .menu-toggle{display:none;position:fixed;top:15px;left:15px;z-index:1001;background:var(--primary);border:none;color:white;padding:12px 14px;border-radius:8px;cursor:pointer;font-size:1.2rem;box-shadow:0 4px 15px rgba(99,102,241,0.4)}
+        .menu-toggle:hover{background:var(--secondary)}
+        
+        /* Tablet styles */
+        @media(max-width:1024px){
+            .sidebar{width:280px;transform:translateX(-100%);transition:transform 0.3s ease}
+            .sidebar.active{transform:translateX(0)}
+            .main{margin-left:0;max-height:none;width:100%}
+            .menu-toggle{display:block}
+            .sidebar-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:99}
+            .sidebar-overlay.active{display:block}
+        }
+        
+        /* Mobile styles */
+        @media(max-width:768px){
+            body{font-size:14px}
+            .container{flex-direction:column}
+            .main{padding:15px;padding-top:60px}
+            .hero{padding:20px 0}
+            .hero h1{font-size:1.5rem}
+            .hero .subtitle{font-size:0.85rem}
+            .hero .author-badge{font-size:0.8rem;padding:6px 14px}
+            .unit-header{padding:20px 15px;margin:25px 0 20px}
+            .unit-header h2{font-size:1.3rem}
+            .unit-header p{font-size:0.85rem}
+            .card{padding:16px;margin-bottom:16px}
+            .card h3{font-size:1.1rem}
+            .card h4{font-size:1rem}
+            .card p{font-size:0.9rem}
+            .code{padding:12px;font-size:0.75rem;overflow-x:auto;white-space:pre-wrap;word-break:break-word}
+            .code .lang{font-size:0.6rem}
+            .table-wrap{margin:10px 0}
+            table{font-size:0.8rem}
+            th,td{padding:8px 10px}
+            .grid{grid-template-columns:1fr;gap:10px}
+            .grid-item{padding:14px}
+            .grid-item h5{font-size:0.95rem}
+            .grid-item p{font-size:0.85rem}
+            .keywords{grid-template-columns:repeat(3,1fr);gap:6px}
+            .kw{padding:6px;font-size:0.75rem}
+            .tip{padding:15px}
+            .tip h5{font-size:0.95rem}
+            .tip p,.tip li{font-size:0.85rem}
+            .tabs{gap:4px}
+            .tab{padding:8px 12px;font-size:0.75rem}
+            .mermaid-box{padding:12px;overflow-x:auto}
+            .nav-links a{padding:12px 14px;font-size:0.9rem}
+            .footer{padding:20px;font-size:0.85rem}
+            pre{font-size:0.75rem;overflow-x:auto}
+        }
+        
+        /* Small mobile styles */
+        @media(max-width:480px){
+            .main{padding:12px;padding-top:55px}
+            .hero h1{font-size:1.3rem}
+            .hero .subtitle{font-size:0.8rem}
+            .unit-header h2{font-size:1.15rem}
+            .card h3{font-size:1rem}
+            .code{font-size:0.7rem;padding:10px}
+            table{font-size:0.75rem}
+            th,td{padding:6px 8px}
+            .keywords{grid-template-columns:repeat(2,1fr)}
+            .kw{font-size:0.7rem}
+            .grid-item{padding:12px}
+        }
+    </style>
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+<div class="sidebar-overlay" onclick="toggleMenu()"></div>
+<div class="container">
+<nav class="sidebar">
+    <div class="logo">
+        <h1><i class="fas fa-code"></i> C Programming</h1>
+        <p class="author">✨ Made by Apela ✨</p>
+        <p class="college">🎓 SPPU Prep Portal</p>
+    </div>
+    <div class="nav-section"><h3>📚 Units</h3>
+        <ul class="nav-links">
+            <li><a href="#unit1"><i class="fas fa-play"></i> Unit 1: Introduction</a></li>
+            <li><a href="#unit2"><i class="fas fa-calculator"></i> Unit 2: Operators</a></li>
+            <li><a href="#unit3"><i class="fas fa-code-branch"></i> Unit 3: Control Flow</a></li>
+            <li><a href="#unit4"><i class="fas fa-table"></i> Unit 4: Arrays & Strings</a></li>
+            <li><a href="#unit5"><i class="fas fa-cubes"></i> Unit 5: Functions</a></li>
+        </ul>
+    </div>
+    <div class="nav-section"><h3>📝 Question Banks</h3>
+        <ul class="nav-links">
+            <li><a href="QB-Unit1.html" target="_blank"><i class="fas fa-question-circle"></i> QB Unit 1 (15 Q)</a></li>
+            <li><a href="QB-Unit2.html" target="_blank"><i class="fas fa-question-circle"></i> QB Unit 2 (27 Q)</a></li>
+            <li><a href="QB-Unit3.html" target="_blank"><i class="fas fa-question-circle"></i> QB Unit 3 (26 Q)</a></li>
+            <li><a href="QB-Unit4.html" target="_blank"><i class="fas fa-question-circle"></i> QB Unit 4 (17 Q)</a></li>
+            <li><a href="QB-Unit5.html" target="_blank"><i class="fas fa-question-circle"></i> QB Unit 5 (20 Q)</a></li>
+        </ul>
+    </div>
+    <div class="tip" style="margin-top:20px">
+        <h5><i class="fas fa-lightbulb"></i> Pro Tip</h5>
+        <p style="font-size:0.85rem">💡 Dry-run your loop variables before writing your final answers!</p>
+    </div>
+</nav>
+<main class="main" id="main">
+    <div class="hero">
+        <h1><i class="fas fa-laptop-code"></i> C Programming Complete Notes</h1>
+        <p class="subtitle">All 5 Units • SPPU FPL • Complete Theory + Programs</p>
+        <div class="author-badge">🚀 Made with 💜 by Apela</div>
+    </div>
+
+    <!-- UNIT 1 -->
+    <section id="unit1">
+        <div class="unit-header"><h2>📘 Unit 1: Introduction & Planning</h2><p>Algorithms • Flowcharts • C Structure • Tokens • Data Types • I/O Functions</p></div>
+        
+        <div class="card"><h3><i class="fas fa-tools"></i> What is Algorithm?</h3>
+            <p>An <strong>algorithm</strong> is a step-by-step procedure to solve a problem. It must be finite, precise, and effective.</p>
+            <h4>Characteristics of Algorithm</h4>
+            <div class="table-wrap"><table><thead><tr><th>Characteristic</th><th>Description</th></tr></thead><tbody>
+                <tr><td><strong>Finiteness</strong></td><td>Must terminate after a finite number of steps</td></tr>
+                <tr><td><strong>Definiteness</strong></td><td>Each step must be precisely defined</td></tr>
+                <tr><td><strong>Effectiveness</strong></td><td>Each step must be executable in finite time</td></tr>
+                <tr><td><strong>Input</strong></td><td>Zero or more inputs required</td></tr>
+                <tr><td><strong>Output</strong></td><td>One or more outputs produced</td></tr>
+                <tr><td><strong>Generality</strong></td><td>Must work for all valid inputs</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-file-alt"></i> Algorithm Examples</h3>
+            <h4>1. Add Two Numbers</h4>
+            <div class="code"><span class="lang">Algorithm</span>Step 1: Start<br>Step 2: Declare variables num1, num2, sum<br>Step 3: Read num1 and num2<br>Step 4: sum = num1 + num2<br>Step 5: Display sum<br>Step 6: Stop</div>
+            
+            <h4>2. Check Even or Odd</h4>
+            <div class="code"><span class="lang">Algorithm</span>Step 1: Start<br>Step 2: Declare variable n<br>Step 3: Read n<br>Step 4: IF n % 2 == 0 THEN print "Even"<br>Step 5: ELSE print "Odd"<br>Step 6: Stop</div>
+            
+            <h4>3. Find Largest of Three Numbers</h4>
+            <div class="code"><span class="lang">Algorithm</span>Step 1: Start<br>Step 2: Declare a, b, c<br>Step 3: Read a, b, c<br>Step 4: IF a >= b AND a >= c THEN print a<br>Step 5: ELSE IF b >= a AND b >= c THEN print b<br>Step 6: ELSE print c<br>Step 7: Stop</div>
+            
+            <h4>4. Factorial of a Number</h4>
+            <div class="code"><span class="lang">Algorithm</span>Step 1: Start<br>Step 2: Declare n, i, fact=1<br>Step 3: Read n<br>Step 4: FOR i = 1 to n DO fact = fact * i<br>Step 5: Display fact<br>Step 6: Stop</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-project-diagram"></i> What is Flowchart?</h3>
+            <p>A <strong>flowchart</strong> is a pictorial/graphical representation of an algorithm using symbols connected by arrows.</p>
+            <h4>Flowchart Symbols</h4>
+            <div class="table-wrap"><table><thead><tr><th>Symbol</th><th>Name</th><th>Purpose</th></tr></thead><tbody>
+                <tr><td>⬭ Oval</td><td>Terminal</td><td>Start/Stop</td></tr>
+                <tr><td>▭ Rectangle</td><td>Process</td><td>Calculation/Assignment</td></tr>
+                <tr><td>◇ Diamond</td><td>Decision</td><td>Yes/No condition</td></tr>
+                <tr><td>▱ Parallelogram</td><td>I/O</td><td>Input/Output</td></tr>
+                <tr><td>→ Arrow</td><td>Flow Line</td><td>Direction of flow</td></tr>
+                <tr><td>○ Circle</td><td>Connector</td><td>Connects flowchart parts</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-stream"></i> Flowchart Examples (Mermaid)</h3>
+            <h4>1. Add Two Numbers</h4>
+            <div class="mermaid-box"><div class="mermaid">
+flowchart TD
+    A([Start]) --> B[/Read num1, num2/]
+    B --> C[sum = num1 + num2]
+    C --> D[/Display sum/]
+    D --> E([Stop])
+            </div></div>
+            
+            <h4>2. Check Even or Odd</h4>
+            <div class="mermaid-box"><div class="mermaid">
+flowchart TD
+    A([Start]) --> B[/Read n/]
+    B --> C{n % 2 == 0?}
+    C -->|Yes| D[/Print Even/]
+    C -->|No| E[/Print Odd/]
+    D --> F([Stop])
+    E --> F
+            </div></div>
+            
+            <h4>3. Largest of Three Numbers</h4>
+            <div class="mermaid-box"><div class="mermaid">
+flowchart TD
+    A([Start]) --> B[/Read a, b, c/]
+    B --> C{a >= b AND a >= c?}
+    C -->|Yes| D[/Print a/]
+    C -->|No| E{b >= c?}
+    E -->|Yes| F[/Print b/]
+    E -->|No| G[/Print c/]
+    D --> H([Stop])
+    F --> H
+    G --> H
+            </div></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-history"></i> History of C</h3>
+            <p>C was developed at <strong>AT&T Bell Labs, USA</strong> by <strong>Dennis Ritchie</strong> in 1972. It evolved from ALGOL → BCPL → B → C.</p>
+            <div class="table-wrap"><table><thead><tr><th>Year</th><th>Language</th><th>Developer</th><th>Place</th></tr></thead><tbody>
+                <tr><td>1960</td><td>ALGOL</td><td>International Group</td><td>-</td></tr>
+                <tr><td>1967</td><td>BCPL</td><td>Martin Richards</td><td>Cambridge Univ.</td></tr>
+                <tr><td>1970</td><td>B Language</td><td>Ken Thompson</td><td>AT&T Bell Labs</td></tr>
+                <tr><td><strong>1972</strong></td><td><strong>C Language</strong></td><td><strong>Dennis Ritchie</strong></td><td><strong>AT&T Bell Labs</strong></td></tr>
+                <tr><td>1978</td><td>K&R C</td><td>Kernighan & Ritchie</td><td>Bell Labs</td></tr>
+                <tr><td>1989</td><td>ANSI C (C89)</td><td>ANSI Committee</td><td>USA</td></tr>
+            </tbody></table></div>
+            
+            <h4>Features of C</h4>
+            <div class="grid">
+                <div class="grid-item"><h5><i class="fas fa-bolt"></i> Fast & Efficient</h5><p>Direct memory access, minimal overhead</p></div>
+                <div class="grid-item"><h5><i class="fas fa-sync"></i> Portable</h5><p>Write once, compile anywhere</p></div>
+                <div class="grid-item"><h5><i class="fas fa-cube"></i> Structured</h5><p>Uses functions for modularity</p></div>
+                <div class="grid-item"><h5><i class="fas fa-microchip"></i> Low-Level Access</h5><p>Pointers, bitwise operations</p></div>
+                <div class="grid-item"><h5><i class="fas fa-expand-arrows-alt"></i> Extensible</h5><p>Can add new functions</p></div>
+                <div class="grid-item"><h5><i class="fas fa-memory"></i> Rich Library</h5><p>Built-in functions</p></div>
+            </div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-sitemap"></i> Structure of C Program</h3>
+            <div class="mermaid-box"><div class="mermaid">
+graph TD
+    A[Documentation Section] --> B[Preprocessor Directives]
+    B --> C[Global Declarations]
+    C --> D[main Function]
+    D --> E[Local Declarations]
+    E --> F[Statements]
+    F --> G[User-Defined Functions]
+            </div></div>
+            <div class="code"><span class="lang">C Program Structure</span><span class="comment">/* Documentation: Author, Purpose */</span><br><br><span class="keyword">#include</span> &lt;stdio.h&gt;  <span class="comment">// Preprocessor</span><br><span class="keyword">#define</span> PI 3.14     <span class="comment">// Macro</span><br><br><span class="keyword">int</span> globalVar = 10;  <span class="comment">// Global Declaration</span><br><br><span class="keyword">int</span> <span class="func">main</span>() {<br>    <span class="keyword">int</span> localVar = 5;  <span class="comment">// Local Declaration</span><br>    <span class="func">printf</span>(<span class="str">"Hello World!\n"</span>);<br>    <span class="keyword">return</span> 0;<br>}<br><br><span class="comment">// User-defined functions below</span></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-puzzle-piece"></i> C Tokens</h3>
+            <p>Tokens are the smallest individual units in a C program. Six types:</p>
+            <div class="mermaid-box"><div class="mermaid">
+mindmap
+  root((C Tokens))
+    Keywords
+      32 reserved words
+    Identifiers
+      Variable/function names
+    Constants
+      Fixed values
+    Strings
+      Character sequences
+    Operators
+      +, -, *, /, etc.
+    Special Symbols
+      {, }, [, ], etc.
+            </div></div>
+            
+            <h4>32 Keywords in C (MEMORIZE!)</h4>
+            <div class="keywords">
+                <div class="kw">auto</div><div class="kw">break</div><div class="kw">case</div><div class="kw">char</div>
+                <div class="kw">const</div><div class="kw">continue</div><div class="kw">default</div><div class="kw">do</div>
+                <div class="kw">double</div><div class="kw">else</div><div class="kw">enum</div><div class="kw">extern</div>
+                <div class="kw">float</div><div class="kw">for</div><div class="kw">goto</div><div class="kw">if</div>
+                <div class="kw">int</div><div class="kw">long</div><div class="kw">register</div><div class="kw">return</div>
+                <div class="kw">short</div><div class="kw">signed</div><div class="kw">sizeof</div><div class="kw">static</div>
+                <div class="kw">struct</div><div class="kw">switch</div><div class="kw">typedef</div><div class="kw">union</div>
+                <div class="kw">unsigned</div><div class="kw">void</div><div class="kw">volatile</div><div class="kw">while</div>
+            </div>
+            
+            <h4>Identifier Rules</h4>
+            <ul style="margin-left:20px;color:var(--text2)">
+                <li>Must start with letter or underscore (_)</li>
+                <li>Can contain letters, digits, underscores</li>
+                <li>Cannot be a keyword</li>
+                <li>Case-sensitive (sum ≠ Sum)</li>
+                <li>Max 31 characters (ANSI)</li>
+            </ul>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-database"></i> Data Types</h3>
+            <div class="mermaid-box"><div class="mermaid">
+graph TD
+    A[Data Types] --> B[Primary]
+    A --> C[Derived]
+    A --> D[User-Defined]
+    B --> B1[int]
+    B --> B2[float]
+    B --> B3[char]
+    B --> B4[double]
+    B --> B5[void]
+    C --> C1[Arrays]
+    C --> C2[Pointers]
+    C --> C3[Functions]
+    D --> D1[struct]
+    D --> D2[union]
+    D --> D3[enum]
+            </div></div>
+            <h4>Primary Data Types</h4>
+            <div class="table-wrap"><table><thead><tr><th>Type</th><th>Size</th><th>Range</th><th>Format</th><th>Example</th></tr></thead><tbody>
+                <tr><td><code>int</code></td><td>2/4 bytes</td><td>-32,768 to 32,767</td><td>%d</td><td><code>int age = 25;</code></td></tr>
+                <tr><td><code>float</code></td><td>4 bytes</td><td>3.4E-38 to 3.4E+38</td><td>%f</td><td><code>float pi = 3.14;</code></td></tr>
+                <tr><td><code>double</code></td><td>8 bytes</td><td>1.7E-308 to 1.7E+308</td><td>%lf</td><td><code>double val = 3.14159;</code></td></tr>
+                <tr><td><code>char</code></td><td>1 byte</td><td>-128 to 127</td><td>%c</td><td><code>char ch = 'A';</code></td></tr>
+                <tr><td><code>void</code></td><td>0 bytes</td><td>No value</td><td>-</td><td><code>void func();</code></td></tr>
+            </tbody></table></div>
+            
+            <h4>Type Modifiers</h4>
+            <div class="table-wrap"><table><thead><tr><th>Type</th><th>Size</th><th>Range</th></tr></thead><tbody>
+                <tr><td><code>short int</code></td><td>2 bytes</td><td>-32,768 to 32,767</td></tr>
+                <tr><td><code>long int</code></td><td>4 bytes</td><td>-2,147,483,648 to 2,147,483,647</td></tr>
+                <tr><td><code>unsigned int</code></td><td>2 bytes</td><td>0 to 65,535</td></tr>
+                <tr><td><code>long double</code></td><td>10 bytes</td><td>Very large range</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-box"></i> Storage Classes</h3>
+            <p>Storage classes define scope, visibility, lifetime, and default value of variables.</p>
+            <div class="table-wrap"><table><thead><tr><th>Class</th><th>Keyword</th><th>Scope</th><th>Lifetime</th><th>Default Value</th><th>Memory</th></tr></thead><tbody>
+                <tr><td>Automatic</td><td><code>auto</code></td><td>Local</td><td>Function</td><td>Garbage</td><td>Stack</td></tr>
+                <tr><td>Register</td><td><code>register</code></td><td>Local</td><td>Function</td><td>Garbage</td><td>CPU Register</td></tr>
+                <tr><td>Static</td><td><code>static</code></td><td>Local</td><td>Program</td><td>Zero</td><td>Data Segment</td></tr>
+                <tr><td>External</td><td><code>extern</code></td><td>Global</td><td>Program</td><td>Zero</td><td>Data Segment</td></tr>
+            </tbody></table></div>
+            <div class="code"><span class="lang">Static Variable Example</span><span class="keyword">void</span> <span class="func">counter</span>() {<br>    <span class="keyword">static int</span> count = 0;  <span class="comment">// Retains value</span><br>    count++;<br>    <span class="func">printf</span>(<span class="str">"%d "</span>, count);<br>}<br><span class="comment">// Calling 3 times: 1 2 3</span></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-keyboard"></i> Input/Output Functions</h3>
+            <p>Header: <code>#include &lt;stdio.h&gt;</code></p>
+            <h4>printf() - Formatted Output</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> age = 25;<br><span class="keyword">float</span> salary = 45000.50;<br><span class="keyword">char</span> grade = 'A';<br><br><span class="func">printf</span>(<span class="str">"Age: %d\n"</span>, age);<br><span class="func">printf</span>(<span class="str">"Salary: %.2f\n"</span>, salary);<br><span class="func">printf</span>(<span class="str">"Grade: %c\n"</span>, grade);</div>
+            
+            <h4>scanf() - Formatted Input</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> num;<br><span class="keyword">float</span> price;<br><span class="keyword">char</span> ch;<br><br><span class="func">printf</span>(<span class="str">"Enter number: "</span>);<br><span class="func">scanf</span>(<span class="str">"%d"</span>, &num);  <span class="comment">// & is required!</span><br><br><span class="func">printf</span>(<span class="str">"Enter price: "</span>);<br><span class="func">scanf</span>(<span class="str">"%f"</span>, &price);<br><br><span class="func">printf</span>(<span class="str">"Enter character: "</span>);<br><span class="func">scanf</span>(<span class="str">" %c"</span>, &ch);  <span class="comment">// Space before %c skips whitespace</span></div>
+            
+            <h4>Format Specifiers (Important!)</h4>
+            <div class="table-wrap"><table><thead><tr><th>Specifier</th><th>Type</th><th>Example</th></tr></thead><tbody>
+                <tr><td><code>%d</code></td><td>int</td><td><code>printf("%d", 25);</code></td></tr>
+                <tr><td><code>%f</code></td><td>float</td><td><code>printf("%f", 3.14);</code></td></tr>
+                <tr><td><code>%lf</code></td><td>double</td><td><code>printf("%lf", 3.14159);</code></td></tr>
+                <tr><td><code>%c</code></td><td>char</td><td><code>printf("%c", 'A');</code></td></tr>
+                <tr><td><code>%s</code></td><td>string</td><td><code>printf("%s", "Hello");</code></td></tr>
+                <tr><td><code>%x</code></td><td>hexadecimal</td><td><code>printf("%x", 255);</code></td></tr>
+                <tr><td><code>%o</code></td><td>octal</td><td><code>printf("%o", 15);</code></td></tr>
+                <tr><td><code>%u</code></td><td>unsigned int</td><td><code>printf("%u", 123);</code></td></tr>
+            </tbody></table></div>
+            
+            <h4>Escape Sequences</h4>
+            <div class="table-wrap"><table><thead><tr><th>Sequence</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+                <tr><td><code>\n</code></td><td>New line</td><td>Next line</td></tr>
+                <tr><td><code>\t</code></td><td>Tab</td><td>Horizontal tab</td></tr>
+                <tr><td><code>\0</code></td><td>Null</td><td>String terminator</td></tr>
+                <tr><td><code>\\</code></td><td>Backslash</td><td>Prints \</td></tr>
+                <tr><td><code>\"</code></td><td>Quote</td><td>Prints "</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-lock"></i> Constants</h3>
+            <div class="grid">
+                <div class="grid-item"><h5><i class="fas fa-hashtag"></i> Using #define</h5><p><code>#define PI 3.14</code><br><code>#define MAX 100</code><br>No semicolon, no = sign, preprocessor level</p></div>
+                <div class="grid-item"><h5><i class="fas fa-lock"></i> Using const</h5><p><code>const int MAX = 100;</code><br><code>const float PI = 3.14;</code><br>Value cannot be changed</p></div>
+            </div>
+            <h4>Types of Constants</h4>
+            <div class="table-wrap"><table><thead><tr><th>Type</th><th>Example</th><th>Note</th></tr></thead><tbody>
+                <tr><td>Integer</td><td><code>10, -25, 0</code></td><td>Decimal numbers</td></tr>
+                <tr><td>Float</td><td><code>3.14, -2.5, 1.0e5</code></td><td>Decimal point or exponent</td></tr>
+                <tr><td>Character</td><td><code>'A', 'z', '5'</code></td><td>Single quotes</td></tr>
+                <tr><td>String</td><td><code>"Hello", "C"</code></td><td>Double quotes</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-code"></i> Basic Programs</h3>
+            <h4>1. Hello World</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">#include</span> &lt;stdio.h&gt;<br><span class="keyword">int</span> <span class="func">main</span>() {<br>    <span class="func">printf</span>(<span class="str">"Hello, World!\n"</span>);<br>    <span class="keyword">return</span> 0;<br>}</div>
+            
+            <h4>2. Add Two Numbers</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">#include</span> &lt;stdio.h&gt;<br><span class="keyword">int</span> <span class="func">main</span>() {<br>    <span class="keyword">int</span> a, b, sum;<br>    <span class="func">printf</span>(<span class="str">"Enter two numbers: "</span>);<br>    <span class="func">scanf</span>(<span class="str">"%d %d"</span>, &a, &b);<br>    sum = a + b;<br>    <span class="func">printf</span>(<span class="str">"Sum = %d\n"</span>, sum);<br>    <span class="keyword">return</span> 0;<br>}</div>
+            
+            <h4>3. Area and Circumference of Circle</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">#include</span> &lt;stdio.h&gt;<br><span class="keyword">#define</span> PI 3.14159<br><span class="keyword">int</span> <span class="func">main</span>() {<br>    <span class="keyword">float</span> radius, area, circumference;<br>    <span class="func">printf</span>(<span class="str">"Enter radius: "</span>);<br>    <span class="func">scanf</span>(<span class="str">"%f"</span>, &radius);<br>    area = PI * radius * radius;<br>    circumference = 2 * PI * radius;<br>    <span class="func">printf</span>(<span class="str">"Area = %.2f\n"</span>, area);<br>    <span class="func">printf</span>(<span class="str">"Circumference = %.2f\n"</span>, circumference);<br>    <span class="keyword">return</span> 0;<br>}</div>
+            
+            <h4>4. Simple Interest</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">#include</span> &lt;stdio.h&gt;<br><span class="keyword">int</span> <span class="func">main</span>() {<br>    <span class="keyword">float</span> principal, rate, time, si;<br>    <span class="func">printf</span>(<span class="str">"Enter Principal, Rate, Time: "</span>);<br>    <span class="func">scanf</span>(<span class="str">"%f %f %f"</span>, &principal, &rate, &time);<br>    si = (principal * rate * time) / 100;<br>    <span class="func">printf</span>(<span class="str">"Simple Interest = %.2f\n"</span>, si);<br>    <span class="keyword">return</span> 0;<br>}</div>
+            
+            <h4>5. Swap Two Numbers</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">#include</span> &lt;stdio.h&gt;<br><span class="keyword">int</span> <span class="func">main</span>() {<br>    <span class="keyword">int</span> a, b, temp;<br>    <span class="func">printf</span>(<span class="str">"Enter two numbers: "</span>);<br>    <span class="func">scanf</span>(<span class="str">"%d %d"</span>, &a, &b);<br>    
+    <span class="comment">// Using temp variable</span><br>    temp = a;<br>    a = b;<br>    b = temp;<br>    
+    <span class="func">printf</span>(<span class="str">"After swap: a = %d, b = %d\n"</span>, a, b);<br>    <span class="keyword">return</span> 0;<br>}</div>
+        </div>
+        
+        <div class="tip"><h5><i class="fas fa-star"></i> Unit 1 Complete!</h5><p>Key topics: Algorithms, Flowcharts, C History, Program Structure, Tokens, 32 Keywords, Data Types, Storage Classes, printf/scanf, Format Specifiers, Constants</p></div>
+    </section>
+
+    <!-- UNIT 2 -->
+    <section id="unit2">
+        <div class="unit-header"><h2>📘 Unit 2: Operators & Expressions</h2><p>All Operators • Precedence • Associativity • Math Functions</p></div>
+        
+        <div class="card"><h3><i class="fas fa-plus-minus"></i> Arithmetic Operators</h3>
+            <div class="table-wrap"><table><thead><tr><th>Operator</th><th>Meaning</th><th>Example</th><th>Result</th></tr></thead><tbody>
+                <tr><td><code>+</code></td><td>Addition</td><td>5 + 3</td><td>8</td></tr>
+                <tr><td><code>-</code></td><td>Subtraction</td><td>5 - 3</td><td>2</td></tr>
+                <tr><td><code>*</code></td><td>Multiplication</td><td>5 * 3</td><td>15</td></tr>
+                <tr><td><code>/</code></td><td>Division</td><td>6 / 3</td><td>2</td></tr>
+                <tr><td><code>%</code></td><td>Modulus</td><td>5 % 3</td><td>2</td></tr>
+            </tbody></table></div>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> a = 10, b = 3;<br><span class="func">printf</span>(<span class="str">"Sum: %d"</span>, a + b);  <span class="comment">// 13</span></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-equals"></i> Relational Operators</h3>
+            <div class="table-wrap"><table><thead><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+                <tr><td><code>==</code></td><td>Equal to</td><td>5 == 5 → 1</td></tr>
+                <tr><td><code>!=</code></td><td>Not equal</td><td>5 != 3 → 1</td></tr>
+                <tr><td><code>&gt;</code></td><td>Greater than</td><td>5 > 3 → 1</td></tr>
+                <tr><td><code>&lt;</code></td><td>Less than</td><td>3 < 5 → 1</td></tr>
+                <tr><td><code>&gt;=</code></td><td>Greater or equal</td><td>5 >= 5 → 1</td></tr>
+                <tr><td><code>&lt;=</code></td><td>Less or equal</td><td>3 <= 5 → 1</td></tr>
+            </tbody></table></div>
+            <p><strong>Note:</strong> Returns 1 (true) or 0 (false)</p>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-logic"></i> Logical Operators</h3>
+            <div class="table-wrap"><table><thead><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+                <tr><td><code>&&</code></td><td>AND</td><td>(5>1) && (3<5) → 1</td></tr>
+                <tr><td><code>||</code></td><td>OR</td><td>(5>1) || (6<5) → 1</td></tr>
+                <tr><td><code>!</code></td><td>NOT</td><td>!(5==3) → 1</td></tr>
+            </tbody></table></div>
+            <h4>Truth Table</h4>
+            <div class="table-wrap"><table><thead><tr><th>A</th><th>B</th><th>A && B</th><th>A || B</th><th>!A</th></tr></thead><tbody>
+                <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+                <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+                <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-arrow-up"></i> Increment & Decrement</h3>
+            <div class="table-wrap"><table><thead><tr><th>Type</th><th>Syntax</th><th>Description</th></tr></thead><tbody>
+                <tr><td>Prefix ++</td><td><code>++a</code></td><td>Increment first, then use</td></tr>
+                <tr><td>Postfix ++</td><td><code>a++</code></td><td>Use first, then increment</td></tr>
+                <tr><td>Prefix --</td><td><code>--a</code></td><td>Decrement first, then use</td></tr>
+                <tr><td>Postfix --</td><td><code>a--</code></td><td>Use first, then decrement</td></tr>
+            </tbody></table></div>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> a = 10;<br><span class="func">printf</span>(<span class="str">"%d"</span>, a++);  <span class="comment">// Prints 10, a becomes 11</span><br><span class="func">printf</span>(<span class="str">"%d"</span>, ++a);  <span class="comment">// a becomes 12, prints 12</span></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-question"></i> Ternary Operator</h3>
+            <p><strong>Syntax:</strong> <code>condition ? expr1 : expr2</code></p>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> a = 10, b = 5;<br><span class="keyword">int</span> max = (a > b) ? a : b;  <span class="comment">// max = 10</span></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-binary"></i> Bitwise Operators</h3>
+            <div class="table-wrap"><table><thead><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+                <tr><td><code>&</code></td><td>AND</td><td>5 & 3 = 1</td></tr>
+                <tr><td><code>|</code></td><td>OR</td><td>5 | 3 = 7</td></tr>
+                <tr><td><code>^</code></td><td>XOR</td><td>5 ^ 3 = 6</td></tr>
+                <tr><td><code>~</code></td><td>NOT</td><td>~5 = -6</td></tr>
+                <tr><td><code>&lt;&lt;</code></td><td>Left shift</td><td>5 << 1 = 10</td></tr>
+                <tr><td><code>&gt;&gt;</code></td><td>Right shift</td><td>5 >> 1 = 2</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-sort-numeric-up"></i> Operator Precedence</h3>
+            <div class="tip"><h5><i class="fas fa-brain"></i> Memory Trick: PUMA'S REBL TAC</h5>
+                <p>Postfix → Unary → Multiplicative → Additive → Shift → Relational → Equality → Bitwise → Logical → Ternary → Assignment → Comma</p>
+            </div>
+            <div class="table-wrap"><table><thead><tr><th>Priority</th><th>Operators</th><th>Associativity</th></tr></thead><tbody>
+                <tr><td>1</td><td>() [] . -></td><td>Left to Right</td></tr>
+                <tr><td>2</td><td>++ -- + - ! ~ * & sizeof</td><td>Right to Left</td></tr>
+                <tr><td>3</td><td>* / %</td><td>Left to Right</td></tr>
+                <tr><td>4</td><td>+ -</td><td>Left to Right</td></tr>
+                <tr><td>5</td><td><< >></td><td>Left to Right</td></tr>
+                <tr><td>6</td><td>< <= > >=</td><td>Left to Right</td></tr>
+                <tr><td>7</td><td>== !=</td><td>Left to Right</td></tr>
+                <tr><td>8-10</td><td>& ^ |</td><td>Left to Right</td></tr>
+                <tr><td>11-12</td><td>&& ||</td><td>Left to Right</td></tr>
+                <tr><td>13</td><td>?:</td><td>Right to Left</td></tr>
+                <tr><td>14</td><td>= += -= etc.</td><td>Right to Left</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-square-root-alt"></i> Math Functions</h3>
+            <p><strong>Header:</strong> <code>#include &lt;math.h&gt;</code></p>
+            <div class="table-wrap"><table><thead><tr><th>Function</th><th>Description</th><th>Example</th></tr></thead><tbody>
+                <tr><td><code>sqrt(x)</code></td><td>Square root</td><td>sqrt(25) = 5</td></tr>
+                <tr><td><code>pow(x,y)</code></td><td>x^y</td><td>pow(2,3) = 8</td></tr>
+                <tr><td><code>ceil(x)</code></td><td>Round up</td><td>ceil(2.3) = 3</td></tr>
+                <tr><td><code>floor(x)</code></td><td>Round down</td><td>floor(2.7) = 2</td></tr>
+                <tr><td><code>abs(x)</code></td><td>Absolute</td><td>abs(-5) = 5</td></tr>
+                <tr><td><code>log(x)</code></td><td>Natural log</td><td>log(e) = 1</td></tr>
+            </tbody></table></div>
+        </div>
+        <div class="tip"><h5><i class="fas fa-star"></i> Unit 2 Complete!</h5><p>Key topics: All 8 operator types, Precedence table, Associativity, Math functions</p></div>
+    </section>
+
+    <!-- UNIT 3 -->
+    <section id="unit3">
+        <div class="unit-header"><h2>📘 Unit 3: Control Flow</h2><p>Decision Making • Branching • Loops • Pattern Programs • break/continue</p></div>
+        
+        <div class="card"><h3><i class="fas fa-sitemap"></i> Control Flow Overview</h3>
+            <p>Control flow determines the order in which statements execute. C provides branching, looping, and jump statements.</p>
+            <div class="mermaid-box"><div class="mermaid">
+graph TD
+    A[Control Flow] --> B[Decision/Branching]
+    A --> C[Looping]
+    A --> D[Jump Statements]
+    B --> B1[if]
+    B --> B2[if-else]
+    B --> B3[else-if ladder]
+    B --> B4[nested if]
+    B --> B5[switch]
+    C --> C1[while]
+    C --> C2[do-while]
+    C --> C3[for]
+    D --> D1[break]
+    D --> D2[continue]
+    D --> D3[goto]
+            </div></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-code-branch"></i> Simple if Statement</h3>
+            <p>Executes statements only when condition is true.</p>
+            <div class="mermaid-box"><div class="mermaid">
+flowchart TD
+    A([Start]) --> B{Condition?}
+    B -->|True| C[Statement Block]
+    C --> D[Statement-x]
+    B -->|False| D
+    D --> E([End])
+            </div></div>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> age = 20;<br><span class="keyword">if</span> (age >= 18) {<br>    <span class="func">printf</span>(<span class="str">"Eligible to vote\n"</span>);<br>}<br><span class="keyword">if</span> (age < 18) {<br>    <span class="func">printf</span>(<span class="str">"Not eligible\n"</span>);<br>}</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-arrows-alt-h"></i> if-else Statement</h3>
+            <p>Executes one block if true, another if false.</p>
+            <div class="mermaid-box"><div class="mermaid">
+flowchart TD
+    A([Start]) --> B{Condition?}
+    B -->|True| C[True Block]
+    B -->|False| D[False Block]
+    C --> E[Statement-x]
+    D --> E
+    E --> F([End])
+            </div></div>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> age = 16;<br><span class="keyword">if</span> (age >= 18) {<br>    <span class="func">printf</span>(<span class="str">"Eligible to vote\n"</span>);<br>} <span class="keyword">else</span> {<br>    <span class="func">printf</span>(<span class="str">"Not eligible to vote\n"</span>);<br>}</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-layer-group"></i> else-if Ladder</h3>
+            <p>Multiple conditions checked sequentially.</p>
+            <div class="mermaid-box"><div class="mermaid">
+flowchart TD
+    A([Start]) --> B{Cond1?}
+    B -->|True| C[Statement-1]
+    B -->|False| D{Cond2?}
+    D -->|True| E[Statement-2]
+    D -->|False| F{Cond3?}
+    F -->|True| G[Statement-3]
+    F -->|False| H[Default]
+    C --> I([End])
+    E --> I
+    G --> I
+    H --> I
+            </div></div>
+            <div class="code"><span class="lang">Check Number Type</span><span class="keyword">int</span> n = -5;<br><span class="keyword">if</span> (n > 0) {<br>    <span class="func">printf</span>(<span class="str">"Positive\n"</span>);<br>} <span class="keyword">else if</span> (n < 0) {<br>    <span class="func">printf</span>(<span class="str">"Negative\n"</span>);<br>} <span class="keyword">else</span> {<br>    <span class="func">printf</span>(<span class="str">"Zero\n"</span>);<br>}</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-random"></i> switch Statement</h3>
+            <p>Multi-way branching based on expression value.</p>
+            <h4>Rules for switch:</h4>
+            <ul style="margin-left:20px;color:var(--text2)">
+                <li>Expression must be integer or character type</li>
+                <li>Case values must be constants (no variables)</li>
+                <li><code>break</code> exits switch block</li>
+                <li><code>default</code> is optional (handles unmatched cases)</li>
+                <li>Cases must be unique</li>
+            </ul>
+            <div class="mermaid-box"><div class="mermaid">
+flowchart TD
+    A([Start]) --> B[Evaluate Expression]
+    B --> C{Value1?}
+    C -->|Yes| D[Block-1 + break]
+    C -->|No| E{Value2?}
+    E -->|Yes| F[Block-2 + break]
+    E -->|No| G[Default Block]
+    D --> H([End])
+    F --> H
+    G --> H
+            </div></div>
+            <div class="code"><span class="lang">Student Grade</span><span class="keyword">char</span> grade = 'B';<br><span class="keyword">switch</span>(grade) {<br>    <span class="keyword">case</span> 'A': <span class="func">printf</span>(<span class="str">"Outstanding!\n"</span>); <span class="keyword">break</span>;<br>    <span class="keyword">case</span> 'B': <span class="func">printf</span>(<span class="str">"Excellent!\n"</span>); <span class="keyword">break</span>;<br>    <span class="keyword">case</span> 'C': <span class="func">printf</span>(<span class="str">"Well Done\n"</span>); <span class="keyword">break</span>;<br>    <span class="keyword">case</span> 'D': <span class="func">printf</span>(<span class="str">"You passed\n"</span>); <span class="keyword">break</span>;<br>    <span class="keyword">case</span> 'F': <span class="func">printf</span>(<span class="str">"Better try again\n"</span>); <span class="keyword">break</span>;<br>    <span class="keyword">default</span>: <span class="func">printf</span>(<span class="str">"Invalid grade\n"</span>);<br>}<br><span class="func">printf</span>(<span class="str">"Your grade is %c\n"</span>, grade);</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-redo"></i> while Loop (Entry-Controlled)</h3>
+            <p>Condition checked first, may execute 0 times. Use when iterations are unknown.</p>
+            <div class="mermaid-box"><div class="mermaid">
+flowchart TD
+    A([Start]) --> B{Condition?}
+    B -->|True| C[Loop Body]
+    C --> B
+    B -->|False| D([End])
+            </div></div>
+            <div class="code"><span class="lang">Sum of Squares 1 to 10</span><span class="keyword">int</span> sum = 0, n = 1;<br><span class="keyword">while</span> (n <= 10) {<br>    sum = sum + n * n;<br>    n = n + 1;<br>}<br><span class="func">printf</span>(<span class="str">"Sum = %d\n"</span>, sum); <span class="comment">// 385</span></div>
+            <div class="code"><span class="lang">Reverse a Number</span><span class="keyword">int</span> reverse = 0, number = 12345;<br><span class="keyword">while</span> (number > 0) {<br>    reverse = (reverse * 10) + (number % 10);<br>    number /= 10;<br>}<br><span class="func">printf</span>(<span class="str">"Reverse: %d\n"</span>, reverse); <span class="comment">// 54321</span></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-sync-alt"></i> do-while Loop (Exit-Controlled)</h3>
+            <p>Executes at least once, condition checked after. Use when at least one execution is required.</p>
+            <div class="mermaid-box"><div class="mermaid">
+flowchart TD
+    A([Start]) --> B[Loop Body]
+    B --> C{Condition?}
+    C -->|True| B
+    C -->|False| D([End])
+            </div></div>
+            <div class="code"><span class="lang">Print 0 to 4</span><span class="keyword">int</span> i = 0;<br><span class="keyword">do</span> {<br>    <span class="func">printf</span>(<span class="str">"%d\n"</span>, i);<br>    i++;<br>} <span class="keyword">while</span> (i < 5);<br><span class="comment">// Output: 0 1 2 3 4</span></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-repeat"></i> for Loop (Entry-Controlled)</h3>
+            <p>Init, condition, increment in one line. Use when iterations are known.</p>
+            <div class="code"><span class="lang">Syntax</span><span class="keyword">for</span> (initialization; condition; increment) {<br>    <span class="comment">// body of loop</span><br>}</div>
+            <div class="code"><span class="lang">First 10 Natural Numbers</span><span class="keyword">for</span> (<span class="keyword">int</span> i = 1; i <= 10; i++) {<br>    <span class="func">printf</span>(<span class="str">"%d "</span>, i);<br>}<br><span class="comment">// Output: 1 2 3 4 5 6 7 8 9 10</span></div>
+            <h4>Nested for Loop</h4>
+            <div class="code"><span class="lang">Print Coordinates</span><span class="keyword">for</span> (<span class="keyword">int</span> i = 1; i <= 3; i++) {<br>    <span class="keyword">for</span> (<span class="keyword">int</span> j = 1; j <= 3; j++) {<br>        <span class="func">printf</span>(<span class="str">"(%d,%d) "</span>, i, j);<br>    }<br>    <span class="func">printf</span>(<span class="str">"\n"</span>);<br>}<br><span class="comment">// (1,1) (1,2) (1,3)</span><br><span class="comment">// (2,1) (2,2) (2,3)</span><br><span class="comment">// (3,1) (3,2) (3,3)</span></div>
+            <div class="code"><span class="lang">Multiplication Tables</span><span class="keyword">for</span> (<span class="keyword">int</span> i = 1; i <= 3; i++) {<br>    <span class="func">printf</span>(<span class="str">"Table of %d:\n"</span>, i);<br>    <span class="keyword">for</span> (<span class="keyword">int</span> j = 1; j <= 10; j++) {<br>        <span class="func">printf</span>(<span class="str">"%d x %d = %d\n"</span>, i, j, i*j);<br>    }<br>    <span class="func">printf</span>(<span class="str">"\n"</span>);<br>}</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-exchange-alt"></i> Loop Comparison Table</h3>
+            <div class="table-wrap"><table><thead><tr><th>Feature</th><th>for Loop</th><th>while Loop</th><th>do-while Loop</th></tr></thead><tbody>
+                <tr><td><strong>Syntax</strong></td><td><code>for(init; cond; inc)</code></td><td><code>while(cond)</code></td><td><code>do {...} while(cond);</code></td></tr>
+                <tr><td><strong>Type</strong></td><td>Entry-controlled</td><td>Entry-controlled</td><td>Exit-controlled</td></tr>
+                <tr><td><strong>Initialization</strong></td><td>Part of syntax</td><td>Outside loop</td><td>Outside loop</td></tr>
+                <tr><td><strong>When to use</strong></td><td>Known iterations</td><td>Unknown iterations</td><td>At least one execution</td></tr>
+                <tr><td><strong>Semicolon</strong></td><td>No after condition</td><td>No after condition</td><td>Yes after while(cond)</td></tr>
+                <tr><td><strong>Min Executions</strong></td><td>May be zero</td><td>May be zero</td><td>At least once</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-stop-circle"></i> break & continue</h3>
+            <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>break</th><th>continue</th></tr></thead><tbody>
+                <tr><td><strong>Effect</strong></td><td>Exits loop completely</td><td>Skips current iteration</td></tr>
+                <tr><td><strong>Usage</strong></td><td>In loops and switch</td><td>Only in loops</td></tr>
+                <tr><td><strong>Control</strong></td><td>Goes to statement after loop</td><td>Goes to next iteration</td></tr>
+            </tbody></table></div>
+            <div class="grid">
+                <div class="grid-item"><h5><i class="fas fa-stop"></i> break Example</h5>
+                    <div class="code" style="margin-top:8px;padding:12px"><span class="keyword">for</span>(i = 0; i < 10; i++) {<br>    <span class="keyword">if</span>(i == 5) <span class="keyword">break</span>;<br>    <span class="func">printf</span>(<span class="str">"%d "</span>, i);<br>}<br><span class="comment">// Output: 0 1 2 3 4</span></div>
+                </div>
+                <div class="grid-item"><h5><i class="fas fa-forward"></i> continue Example</h5>
+                    <div class="code" style="margin-top:8px;padding:12px"><span class="keyword">for</span>(i = 0; i < 10; i++) {<br>    <span class="keyword">if</span>(i == 5) <span class="keyword">continue</span>;<br>    <span class="func">printf</span>(<span class="str">"%d "</span>, i);<br>}<br><span class="comment">// Output: 0 1 2 3 4 6 7 8 9</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-th"></i> Pattern Programs (SPPU Important!)</h3>
+            <h4>Pattern 1: Half Pyramid of Numbers</h4>
+            <pre style="color:var(--accent);margin:10px 0">1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5</pre>
+            <div class="code"><span class="lang">C</span><span class="keyword">for</span>(<span class="keyword">int</span> i = 1; i <= 5; i++) {<br>    <span class="keyword">for</span>(<span class="keyword">int</span> j = 1; j <= i; j++) {<br>        <span class="func">printf</span>(<span class="str">"%d "</span>, i);<br>    }<br>    <span class="func">printf</span>(<span class="str">"\n"</span>);<br>}</div>
+            
+            <h4>Pattern 2: Inverted Half Pyramid</h4>
+            <pre style="color:var(--accent);margin:10px 0">6 6 6 6 6 6
+5 5 5 5 5
+4 4 4 4
+3 3 3
+2 2
+1</pre>
+            <div class="code"><span class="lang">C</span><span class="keyword">for</span>(<span class="keyword">int</span> i = 6; i >= 1; i--) {<br>    <span class="keyword">for</span>(<span class="keyword">int</span> j = 1; j <= i; j++) {<br>        <span class="func">printf</span>(<span class="str">"%d "</span>, i);<br>    }<br>    <span class="func">printf</span>(<span class="str">"\n"</span>);<br>}</div>
+            
+            <h4>Pattern 3: Star Triangle</h4>
+            <pre style="color:var(--accent);margin:10px 0">*
+**
+***
+****
+*****</pre>
+            <div class="code"><span class="lang">C</span><span class="keyword">for</span>(<span class="keyword">int</span> i = 1; i <= 5; i++) {<br>    <span class="keyword">for</span>(<span class="keyword">int</span> j = 1; j <= i; j++) {<br>        <span class="func">printf</span>(<span class="str">"*"</span>);<br>    }<br>    <span class="func">printf</span>(<span class="str">"\n"</span>);<br>}</div>
+            
+            <h4>Pattern 4: Character Pyramid</h4>
+            <pre style="color:var(--accent);margin:10px 0">A
+B B
+C C C
+D D D D
+E E E E E</pre>
+            <div class="code"><span class="lang">C</span><span class="keyword">char</span> ch = 'A';<br><span class="keyword">for</span>(<span class="keyword">int</span> i = 1; i <= 5; i++) {<br>    <span class="keyword">for</span>(<span class="keyword">int</span> j = 1; j <= i; j++) {<br>        <span class="func">printf</span>(<span class="str">"%c "</span>, ch);<br>    }<br>    <span class="func">printf</span>(<span class="str">"\n"</span>);<br>    ch++;<br>}</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-code"></i> Important Programs (SPPU Exam)</h3>
+            <h4>1. Check Positive/Negative/Zero</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">#include</span> &lt;stdio.h&gt;<br><span class="keyword">int</span> <span class="func">main</span>() {<br>    <span class="keyword">int</span> num;<br>    <span class="func">printf</span>(<span class="str">"Enter a number: "</span>);<br>    <span class="func">scanf</span>(<span class="str">"%d"</span>, &num);<br>    <br>    <span class="keyword">if</span> (num > 0)<br>        <span class="func">printf</span>(<span class="str">"Positive\n"</span>);<br>    <span class="keyword">else if</span> (num < 0)<br>        <span class="func">printf</span>(<span class="str">"Negative\n"</span>);<br>    <span class="keyword">else</span><br>        <span class="func">printf</span>(<span class="str">"Zero\n"</span>);<br>    <span class="keyword">return</span> 0;<br>}</div>
+            
+            <h4>2. Find Largest of Three Numbers</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> a, b, c;<br><span class="func">printf</span>(<span class="str">"Enter three numbers: "</span>);<br><span class="func">scanf</span>(<span class="str">"%d %d %d"</span>, &a, &b, &c);<br><br><span class="keyword">if</span> (a >= b && a >= c)<br>    <span class="func">printf</span>(<span class="str">"%d is largest\n"</span>, a);<br><span class="keyword">else if</span> (b >= a && b >= c)<br>    <span class="func">printf</span>(<span class="str">"%d is largest\n"</span>, b);<br><span class="keyword">else</span><br>    <span class="func">printf</span>(<span class="str">"%d is largest\n"</span>, c);</div>
+            
+            <h4>3. Factorial of a Number</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> n, i, fact = 1;<br><span class="func">printf</span>(<span class="str">"Enter number: "</span>);<br><span class="func">scanf</span>(<span class="str">"%d"</span>, &n);<br><br><span class="keyword">for</span> (i = 1; i <= n; i++) {<br>    fact = fact * i;<br>}<br><span class="func">printf</span>(<span class="str">"Factorial of %d = %d\n"</span>, n, fact);</div>
+            
+            <h4>4. Fibonacci Series</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> n, t1 = 0, t2 = 1, next, i;<br><span class="func">printf</span>(<span class="str">"Enter terms: "</span>);<br><span class="func">scanf</span>(<span class="str">"%d"</span>, &n);<br><br><span class="func">printf</span>(<span class="str">"Fibonacci: "</span>);<br><span class="keyword">for</span> (i = 1; i <= n; i++) {<br>    <span class="func">printf</span>(<span class="str">"%d "</span>, t1);<br>    next = t1 + t2;<br>    t1 = t2;<br>    t2 = next;<br>}<br><span class="comment">// Output: 0 1 1 2 3 5 8 13 21...</span></div>
+            
+            <h4>5. Check Prime Number</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> n, i, flag = 0;<br><span class="func">printf</span>(<span class="str">"Enter number: "</span>);<br><span class="func">scanf</span>(<span class="str">"%d"</span>, &n);<br><br><span class="keyword">for</span> (i = 2; i <= n/2; i++) {<br>    <span class="keyword">if</span> (n % i == 0) {<br>        flag = 1;<br>        <span class="keyword">break</span>;<br>    }<br>}<br><br><span class="keyword">if</span> (n == 1)<br>    <span class="func">printf</span>(<span class="str">"Neither prime nor composite\n"</span>);<br><span class="keyword">else if</span> (flag == 0)<br>    <span class="func">printf</span>(<span class="str">"%d is prime\n"</span>, n);<br><span class="keyword">else</span><br>    <span class="func">printf</span>(<span class="str">"%d is not prime\n"</span>, n);</div>
+            
+            <h4>6. Check Armstrong Number</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> n, original, remainder, result = 0;<br><span class="func">printf</span>(<span class="str">"Enter number: "</span>);<br><span class="func">scanf</span>(<span class="str">"%d"</span>, &n);<br>original = n;<br><br><span class="keyword">while</span> (original != 0) {<br>    remainder = original % 10;<br>    result += remainder * remainder * remainder;<br>    original /= 10;<br>}<br><br><span class="keyword">if</span> (result == n)<br>    <span class="func">printf</span>(<span class="str">"%d is Armstrong\n"</span>, n);<br><span class="keyword">else</span><br>    <span class="func">printf</span>(<span class="str">"%d is not Armstrong\n"</span>, n);<br><span class="comment">// 153 = 1³ + 5³ + 3³ = 1 + 125 + 27 = 153 ✓</span></div>
+            
+            <h4>7. Reverse a Number</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> n, reverse = 0;<br><span class="func">printf</span>(<span class="str">"Enter number: "</span>);<br><span class="func">scanf</span>(<span class="str">"%d"</span>, &n);<br><br><span class="keyword">while</span> (n != 0) {<br>    reverse = reverse * 10 + (n % 10);<br>    n /= 10;<br>}<br><br><span class="func">printf</span>(<span class="str">"Reversed: %d\n"</span>, reverse);</div>
+            
+            <h4>8. Check Palindrome</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> n, original, reverse = 0;<br><span class="func">printf</span>(<span class="str">"Enter number: "</span>);<br><span class="func">scanf</span>(<span class="str">"%d"</span>, &n);<br>original = n;<br><br><span class="keyword">while</span> (n != 0) {<br>    reverse = reverse * 10 + (n % 10);<br>    n /= 10;<br>}<br><br><span class="keyword">if</span> (original == reverse)<br>    <span class="func">printf</span>(<span class="str">"%d is palindrome\n"</span>, original);<br><span class="keyword">else</span><br>    <span class="func">printf</span>(<span class="str">"%d is not palindrome\n"</span>, original);</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-calculator"></i> Simple Calculator using switch</h3>
+            <div class="code"><span class="lang">C</span><span class="keyword">#include</span> &lt;stdio.h&gt;<br><span class="keyword">int</span> <span class="func">main</span>() {<br>    <span class="keyword">char</span> op;<br>    <span class="keyword">double</span> num1, num2, result;<br>    <br>    <span class="func">printf</span>(<span class="str">"Enter operator (+, -, *, /): "</span>);<br>    <span class="func">scanf</span>(<span class="str">"%c"</span>, &op);<br>    <span class="func">printf</span>(<span class="str">"Enter two numbers: "</span>);<br>    <span class="func">scanf</span>(<span class="str">"%lf %lf"</span>, &num1, &num2);<br>    <br>    <span class="keyword">switch</span>(op) {<br>        <span class="keyword">case</span> '+': result = num1 + num2; <span class="keyword">break</span>;<br>        <span class="keyword">case</span> '-': result = num1 - num2; <span class="keyword">break</span>;<br>        <span class="keyword">case</span> '*': result = num1 * num2; <span class="keyword">break</span>;<br>        <span class="keyword">case</span> '/': <br>            <span class="keyword">if</span> (num2 != 0)<br>                result = num1 / num2;<br>            <span class="keyword">else</span> {<br>                <span class="func">printf</span>(<span class="str">"Error! Division by zero\n"</span>);<br>                <span class="keyword">return</span> 1;<br>            }<br>            <span class="keyword">break</span>;<br>        <span class="keyword">default</span>: <span class="func">printf</span>(<span class="str">"Invalid operator\n"</span>); <span class="keyword">return</span> 1;<br>    }<br>    <br>    <span class="func">printf</span>(<span class="str">"Result: %.2lf\n"</span>, result);<br>    <span class="keyword">return</span> 0;<br>}</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-sigma"></i> Series Programs</h3>
+            <h4>Sum: 1 + 1/2 + 1/3 + ... + 1/n</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> n, i;<br><span class="keyword">float</span> sum = 0.0;<br><span class="func">printf</span>(<span class="str">"Enter n: "</span>);<br><span class="func">scanf</span>(<span class="str">"%d"</span>, &n);<br><br><span class="keyword">for</span> (i = 1; i <= n; i++) {<br>    sum += 1.0 / i;<br>}<br><span class="func">printf</span>(<span class="str">"Sum = %.4f\n"</span>, sum);</div>
+            
+            <h4>Sum of Cubes: 1³ + 2³ + 3³ + ... + n³</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> n, i, sum = 0;<br><span class="func">printf</span>(<span class="str">"Enter n: "</span>);<br><span class="func">scanf</span>(<span class="str">"%d"</span>, &n);<br><br><span class="keyword">for</span> (i = 1; i <= n; i++) {<br>    sum += i * i * i;<br>}<br><span class="func">printf</span>(<span class="str">"Sum of cubes = %d\n"</span>, sum);</div>
+        </div>
+
+        <div class="tip"><h5><i class="fas fa-star"></i> Unit 3 Complete!</h5><p>Key topics: if/else, switch, while, do-while, for, nested loops, break/continue, Pattern Programs, Factorial, Fibonacci, Prime, Armstrong, Palindrome, Calculator</p></div>
+    </section>
+
+    <!-- UNIT 4 -->
+    <section id="unit4">
+        <div class="unit-header"><h2>📘 Unit 4: Arrays & Strings</h2><p>1D Arrays • 2D Arrays • Character Arrays • String Functions</p></div>
+        
+        <div class="card"><h3><i class="fas fa-list"></i> 1D Arrays</h3>
+            <p>Fixed-size collection of same-type elements with contiguous memory allocation, index starts from 0</p>
+            <h4>Declaration & Initialization</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> arr[5] = {10, 20, 30, 40, 50};  <span class="comment">// Compile-time</span><br><span class="keyword">int</span> nums[5];<br><span class="keyword">for</span>(<span class="keyword">int</span> i=0; i<5; i++) <span class="func">scanf</span>(<span class="str">"%d"</span>, &nums[i]);  <span class="comment">// Run-time</span></div>
+            <h4>Array Programs</h4>
+            <div class="code"><span class="lang">Sum & Average</span><span class="keyword">int</span> arr[5]={10,20,30,40,50}, sum=0;<br><span class="keyword">for</span>(<span class="keyword">int</span> i=0; i<5; i++) sum += arr[i];<br><span class="func">printf</span>(<span class="str">"Sum=%d, Avg=%.2f"</span>, sum, (<span class="keyword">float</span>)sum/5);</div>
+            <div class="code"><span class="lang">Find Largest</span><span class="keyword">int</span> arr[5]={45,12,89,34,67}, max=arr[0];<br><span class="keyword">for</span>(<span class="keyword">int</span> i=1; i<5; i++)<br>    <span class="keyword">if</span>(arr[i]>max) max=arr[i];<br><span class="func">printf</span>(<span class="str">"Largest = %d"</span>, max); <span class="comment">// 89</span></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-table"></i> 2D Arrays (Matrix)</h3>
+            <p>Array of arrays - represents rows × columns</p>
+            <div class="code"><span class="lang">Declaration</span><span class="keyword">int</span> matrix[3][3] = {<br>    {1, 2, 3},<br>    {4, 5, 6},<br>    {7, 8, 9}<br>};</div>
+            <h4>Matrix Addition</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> A[2][2]={{1,2},{3,4}}, B[2][2]={{5,6},{7,8}}, C[2][2];<br><span class="keyword">for</span>(<span class="keyword">int</span> i=0; i<2; i++)<br>    <span class="keyword">for</span>(<span class="keyword">int</span> j=0; j<2; j++)<br>        C[i][j] = A[i][j] + B[i][j];</div>
+            <h4>Matrix Multiplication</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">for</span>(<span class="keyword">int</span> i=0; i<2; i++)<br>  <span class="keyword">for</span>(<span class="keyword">int</span> j=0; j<2; j++) {<br>    C[i][j] = 0;<br>    <span class="keyword">for</span>(<span class="keyword">int</span> k=0; k<2; k++)<br>      C[i][j] += A[i][k] * B[k][j];<br>  }</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-font"></i> Strings (Character Arrays)</h3>
+            <p>Sequence of characters terminated with <code>\0</code> (null character)</p>
+            <div class="code"><span class="lang">C</span><span class="keyword">char</span> str[] = <span class="str">"Hello"</span>;  <span class="comment">// Stored: H e l l o \0</span><br><span class="keyword">char</span> str2[6] = {'H','e','l','l','o','\0'};</div>
+            <h4>Reading Strings</h4>
+            <div class="table-wrap"><table><thead><tr><th>Method</th><th>Usage</th><th>Note</th></tr></thead><tbody>
+                <tr><td><code>scanf("%s")</code></td><td><code>scanf("%s", name);</code></td><td>Stops at space</td></tr>
+                <tr><td><code>gets()</code></td><td><code>gets(str);</code></td><td>Reads full line (unsafe)</td></tr>
+                <tr><td><code>fgets()</code></td><td><code>fgets(str, 100, stdin);</code></td><td>Safe, recommended</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-tools"></i> String Functions (string.h)</h3>
+            <div class="table-wrap"><table><thead><tr><th>Function</th><th>Syntax</th><th>Purpose</th></tr></thead><tbody>
+                <tr><td><code>strlen()</code></td><td><code>strlen(str)</code></td><td>Returns length (without \0)</td></tr>
+                <tr><td><code>strcpy()</code></td><td><code>strcpy(dest, src)</code></td><td>Copies string</td></tr>
+                <tr><td><code>strcat()</code></td><td><code>strcat(str1, str2)</code></td><td>Concatenates strings</td></tr>
+                <tr><td><code>strcmp()</code></td><td><code>strcmp(s1, s2)</code></td><td>Returns 0 if equal, <0 or >0 otherwise</td></tr>
+            </tbody></table></div>
+            <div class="code"><span class="lang">Examples</span><span class="keyword">char</span> s1[50]=<span class="str">"Hello"</span>, s2[]=<span class="str">" World"</span>;<br><span class="func">printf</span>(<span class="str">"Length: %d"</span>, <span class="func">strlen</span>(s1)); <span class="comment">// 5</span><br><span class="func">strcat</span>(s1, s2);  <span class="comment">// s1 = "Hello World"</span><br><span class="keyword">if</span>(<span class="func">strcmp</span>(s1,s2)==0) <span class="func">printf</span>(<span class="str">"Equal"</span>);</div>
+            <h4>String Reverse (Manual)</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">char</span> str[]=<span class="str">"Hello"</span>, rev[50];<br><span class="keyword">int</span> len = <span class="func">strlen</span>(str);<br><span class="keyword">for</span>(<span class="keyword">int</span> i=0; i<len; i++)<br>    rev[i] = str[len-1-i];<br>rev[len] = '\0';<br><span class="func">printf</span>(<span class="str">"%s"</span>, rev); <span class="comment">// olleH</span></div>
+            <h4>Check Palindrome String</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">char</span> str[]=<span class="str">"madam"</span>;<br><span class="keyword">int</span> len=<span class="func">strlen</span>(str), isPalin=1;<br><span class="keyword">for</span>(<span class="keyword">int</span> i=0; i<len/2; i++)<br>    <span class="keyword">if</span>(str[i]!=str[len-1-i]) {isPalin=0; <span class="keyword">break</span>;}<br><span class="func">printf</span>(isPalin ? <span class="str">"Palindrome"</span> : <span class="str">"Not"</span>);</div>
+        </div>
+        <div class="tip"><h5><i class="fas fa-star"></i> Unit 4 Complete!</h5><p>Key topics: 1D/2D arrays, matrix operations, strings, string functions</p></div>
+    </section>
+
+    <!-- UNIT 5 -->
+    <section id="unit5">
+        <div class="unit-header"><h2>📘 Unit 5: Functions & Structures</h2><p>User-Defined Functions • Recursion • Structures • Arrays of Structures</p></div>
+        
+        <div class="card"><h3><i class="fas fa-cubes"></i> Functions</h3>
+            <p>Self-contained block of code that performs a specific task. Benefits: Reusability, Modularity, Easy debugging</p>
+            <h4>Function Elements</h4>
+            <div class="grid">
+                <div class="grid-item"><h5><i class="fas fa-file-signature"></i> Declaration</h5><p><code>return_type name(params);</code><br>Prototype before main()</p></div>
+                <div class="grid-item"><h5><i class="fas fa-cogs"></i> Definition</h5><p>Actual implementation with function body</p></div>
+                <div class="grid-item"><h5><i class="fas fa-phone"></i> Call</h5><p><code>name(arguments);</code><br>Invoking the function</p></div>
+            </div>
+            <div class="code"><span class="lang">C</span><span class="comment">// Declaration</span><br><span class="keyword">int</span> <span class="func">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b);<br><br><span class="keyword">int</span> <span class="func">main</span>() {<br>    <span class="keyword">int</span> result = <span class="func">add</span>(5, 3);  <span class="comment">// Call</span><br>    <span class="func">printf</span>(<span class="str">"Sum = %d"</span>, result);<br>    <span class="keyword">return</span> 0;<br>}<br><br><span class="comment">// Definition</span><br><span class="keyword">int</span> <span class="func">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {<br>    <span class="keyword">return</span> a + b;<br>}</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-sitemap"></i> Categories of Functions</h3>
+            <div class="table-wrap"><table><thead><tr><th>Category</th><th>Arguments</th><th>Return</th><th>Example</th></tr></thead><tbody>
+                <tr><td>Type 1</td><td>No</td><td>No</td><td><code>void greet() { printf("Hi"); }</code></td></tr>
+                <tr><td>Type 2</td><td>Yes</td><td>No</td><td><code>void display(int n) { printf("%d",n); }</code></td></tr>
+                <tr><td>Type 3</td><td>Yes</td><td>Yes</td><td><code>int add(int a, int b) { return a+b; }</code></td></tr>
+                <tr><td>Type 4</td><td>No</td><td>Yes</td><td><code>int getNum() { int n; scanf("%d",&n); return n; }</code></td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-undo"></i> Recursion</h3>
+            <p>Function calling itself. Must have base case to stop recursion.</p>
+            <h4>Factorial using Recursion</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> <span class="func">factorial</span>(<span class="keyword">int</span> n) {<br>    <span class="keyword">if</span> (n == 0 || n == 1)<br>        <span class="keyword">return</span> 1;  <span class="comment">// Base case</span><br>    <span class="keyword">else</span><br>        <span class="keyword">return</span> n * <span class="func">factorial</span>(n - 1);  <span class="comment">// Recursive call</span><br>}<br><br><span class="func">printf</span>(<span class="str">"%d"</span>, <span class="func">factorial</span>(5)); <span class="comment">// 120</span></div>
+            <h4>Fibonacci using Recursion</h4>
+            <div class="code"><span class="lang">C</span><span class="keyword">int</span> <span class="func">fib</span>(<span class="keyword">int</span> n) {<br>    <span class="keyword">if</span> (n <= 1) <span class="keyword">return</span> n;<br>    <span class="keyword">return</span> <span class="func">fib</span>(n-1) + <span class="func">fib</span>(n-2);<br>}</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-exchange-alt"></i> Call by Value vs Reference</h3>
+            <div class="table-wrap"><table><thead><tr><th>Call by Value</th><th>Call by Reference</th></tr></thead><tbody>
+                <tr><td>Copy of value passed</td><td>Address passed</td></tr>
+                <tr><td>Original unchanged</td><td>Original changes</td></tr>
+                <tr><td><code>func(a, b)</code></td><td><code>func(&a, &b)</code></td></tr>
+            </tbody></table></div>
+            <div class="code"><span class="lang">Swap using Reference</span><span class="keyword">void</span> <span class="func">swap</span>(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b) {<br>    <span class="keyword">int</span> temp = *a;<br>    *a = *b;<br>    *b = temp;<br>}<br><span class="func">swap</span>(&x, &y);  <span class="comment">// x and y swapped</span></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-boxes"></i> Structures</h3>
+            <p>User-defined data type grouping variables of different types under one name</p>
+            <div class="code"><span class="lang">C</span><span class="keyword">struct</span> student {<br>    <span class="keyword">char</span> name[50];<br>    <span class="keyword">int</span> roll_no;<br>    <span class="keyword">float</span> marks;<br>};  <span class="comment">// Don't forget semicolon!</span><br><br><span class="keyword">struct</span> student s1 = {<span class="str">"John"</span>, 101, 85.5};<br><span class="func">printf</span>(<span class="str">"Name: %s, Roll: %d"</span>, s1.name, s1.roll_no);</div>
+            <h4>Array vs Structure</h4>
+            <div class="table-wrap"><table><thead><tr><th>Array</th><th>Structure</th></tr></thead><tbody>
+                <tr><td>Same data type</td><td>Different data types</td></tr>
+                <tr><td>Index access <code>arr[0]</code></td><td>Dot operator <code>s.name</code></td></tr>
+                <tr><td>No keyword</td><td>Uses <code>struct</code> keyword</td></tr>
+            </tbody></table></div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-th-list"></i> Array of Structures</h3>
+            <div class="code"><span class="lang">C</span><span class="keyword">struct</span> student {<br>    <span class="keyword">char</span> name[50];<br>    <span class="keyword">int</span> roll;<br>    <span class="keyword">float</span> marks;<br>};<br><br><span class="keyword">struct</span> student class[5];  <span class="comment">// Array of 5 students</span><br><br><span class="comment">// Input for 5 students</span><br><span class="keyword">for</span>(<span class="keyword">int</span> i=0; i<5; i++) {<br>    <span class="func">scanf</span>(<span class="str">"%s %d %f"</span>, class[i].name, &class[i].roll, &class[i].marks);<br>}<br><br><span class="comment">// Display all students</span><br><span class="keyword">for</span>(<span class="keyword">int</span> i=0; i<5; i++) {<br>    <span class="func">printf</span>(<span class="str">"%s - %d - %.2f\n"</span>, class[i].name, class[i].roll, class[i].marks);<br>}</div>
+        </div>
+
+        <div class="card"><h3><i class="fas fa-code"></i> Structure Program Example</h3>
+            <div class="code"><span class="lang">Student Report Card</span><span class="keyword">#include</span> <stdio.h><br><span class="keyword">struct</span> student {<br>    <span class="keyword">char</span> name[50];<br>    <span class="keyword">int</span> roll;<br>    <span class="keyword">float</span> marks[3];<br>    <span class="keyword">float</span> total, percentage;<br>};<br><br><span class="keyword">int</span> <span class="func">main</span>() {<br>    <span class="keyword">struct</span> student s = {<span class="str">"John"</span>, 101, {85, 90, 78}};<br>    s.total = s.marks[0] + s.marks[1] + s.marks[2];<br>    s.percentage = (s.total / 300) * 100;<br>    <span class="func">printf</span>(<span class="str">"Name: %s\nTotal: %.2f\nPercentage: %.2f%%"</span>, <br>           s.name, s.total, s.percentage);<br>    <span class="keyword">return</span> 0;<br>}</div>
+        </div>
+        <div class="tip"><h5><i class="fas fa-star"></i> Unit 5 Complete!</h5><p>Key topics: Functions, Recursion, Call by Value/Reference, Structures, Array of Structures</p></div>
+    </section>
+
+    <!-- ALL UNITS SUMMARY -->
+    <section>
+        <div class="unit-header" style="background:linear-gradient(135deg,#10b981,#3b82f6)"><h2>🎉 All 5 Units Complete!</h2><p>You're now ready to ace your SPPU FPL exam!</p></div>
+        <div class="card"><h3><i class="fas fa-trophy"></i> Quick Revision Checklist</h3>
+            <div class="grid">
+                <div class="grid-item"><h5><i class="fas fa-check"></i> Unit 1</h5><p>Algorithms, Flowcharts, 32 Keywords, Data Types, Storage Classes</p></div>
+                <div class="grid-item"><h5><i class="fas fa-check"></i> Unit 2</h5><p>All Operators, Precedence (PUMA'S REBL TAC), Math Functions</p></div>
+                <div class="grid-item"><h5><i class="fas fa-check"></i> Unit 3</h5><p>if/else, switch, while, do-while, for, break/continue</p></div>
+                <div class="grid-item"><h5><i class="fas fa-check"></i> Unit 4</h5><p>1D/2D Arrays, Strings, strlen, strcpy, strcat, strcmp</p></div>
+                <div class="grid-item"><h5><i class="fas fa-check"></i> Unit 5</h5><p>Functions, Recursion, Structures, Array of Structures</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUESTION BANKS SECTION -->
+    <section id="question-banks" style="margin-top:50px">
+        <div class="unit-header" style="background:linear-gradient(135deg,#f59e0b,#ef4444)"><h2>📝 Question Banks</h2><p>SPPU FPL Important Q&A • All 5 Units • 97 Questions • Exam Focused</p></div>
+        
+        <div class="card">
+            <h3><i class="fas fa-graduation-cap"></i> Complete Question Bank Collection</h3>
+            <p style="margin-bottom:20px">Click on any unit below to open the complete Question Bank with detailed answers, flowcharts, code examples, and tables.</p>
+            
+            <div class="grid" style="gap:20px">
+                <a href="QB-Unit1.html" target="_blank" style="text-decoration:none">
+                    <div class="grid-item" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);padding:25px;border-radius:12px;cursor:pointer;transition:transform 0.3s">
+                        <h4 style="color:#fff;margin-bottom:10px"><i class="fas fa-question-circle"></i> Unit 1 Question Bank</h4>
+                        <p style="color:rgba(255,255,255,0.9)">Introduction & Planning</p>
+                        <p style="color:rgba(255,255,255,0.7);font-size:0.9rem">Algorithms • Flowcharts • C History • Tokens</p>
+                        <p style="color:#fcd34d;font-weight:600;margin-top:10px">15 Questions →</p>
+                    </div>
+                </a>
+                
+                <a href="QB-Unit2.html" target="_blank" style="text-decoration:none">
+                    <div class="grid-item" style="background:linear-gradient(135deg,#ec4899,#8b5cf6);padding:25px;border-radius:12px;cursor:pointer;transition:transform 0.3s">
+                        <h4 style="color:#fff;margin-bottom:10px"><i class="fas fa-question-circle"></i> Unit 2 Question Bank</h4>
+                        <p style="color:rgba(255,255,255,0.9)">Operators & Expressions</p>
+                        <p style="color:rgba(255,255,255,0.7);font-size:0.9rem">Arithmetic • Logical • Bitwise • Precedence</p>
+                        <p style="color:#fcd34d;font-weight:600;margin-top:10px">27 Questions →</p>
+                    </div>
+                </a>
+                
+                <a href="QB-Unit3.html" target="_blank" style="text-decoration:none">
+                    <div class="grid-item" style="background:linear-gradient(135deg,#10b981,#14b8a6);padding:25px;border-radius:12px;cursor:pointer;transition:transform 0.3s">
+                        <h4 style="color:#fff;margin-bottom:10px"><i class="fas fa-question-circle"></i> Unit 3 Question Bank</h4>
+                        <p style="color:rgba(255,255,255,0.9)">Control Flow</p>
+                        <p style="color:rgba(255,255,255,0.7);font-size:0.9rem">Conditionals • Loops • Patterns • Programs</p>
+                        <p style="color:#fcd34d;font-weight:600;margin-top:10px">26 Questions →</p>
+                    </div>
+                </a>
+                
+                <a href="QB-Unit4.html" target="_blank" style="text-decoration:none">
+                    <div class="grid-item" style="background:linear-gradient(135deg,#f59e0b,#f97316);padding:25px;border-radius:12px;cursor:pointer;transition:transform 0.3s">
+                        <h4 style="color:#fff;margin-bottom:10px"><i class="fas fa-question-circle"></i> Unit 4 Question Bank</h4>
+                        <p style="color:rgba(255,255,255,0.9)">Arrays & Strings</p>
+                        <p style="color:rgba(255,255,255,0.7);font-size:0.9rem">1D/2D Arrays • String Functions • Programs</p>
+                        <p style="color:#fcd34d;font-weight:600;margin-top:10px">17 Questions →</p>
+                    </div>
+                </a>
+                
+                <a href="QB-Unit5.html" target="_blank" style="text-decoration:none">
+                    <div class="grid-item" style="background:linear-gradient(135deg,#ef4444,#dc2626);padding:25px;border-radius:12px;cursor:pointer;transition:transform 0.3s">
+                        <h4 style="color:#fff;margin-bottom:10px"><i class="fas fa-question-circle"></i> Unit 5 Question Bank</h4>
+                        <p style="color:rgba(255,255,255,0.9)">Functions & Structures</p>
+                        <p style="color:rgba(255,255,255,0.7);font-size:0.9rem">User-defined Functions • Recursion • Structures</p>
+                        <p style="color:#fcd34d;font-weight:600;margin-top:10px">20 Questions →</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="tip" style="margin-top:25px">
+                <h5><i class="fas fa-lightbulb"></i> Study Tip</h5>
+                <p>Each Question Bank file is self-contained with complete answers, code examples, flowcharts (Mermaid diagrams), and detailed explanations. Perfect for exam preparation!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 C Programming Complete Notes | <span class="heart">❤️</span> Made by <strong>Apela</strong></p>
+        <p style="margin-top:8px;font-size:0.8rem">🖕 Dedicated to DIT Clg 🖕 | SPPU FPL | All Units + Question Banks</p>
+    </footer>
+</main>
+</div>
+<script>
+mermaid.initialize({startOnLoad:true,theme:'dark'});
+document.querySelectorAll('.nav-links a').forEach(l=>{l.addEventListener('click',function(e){document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));this.classList.add('active');if(window.innerWidth<=1024){toggleMenu();}})});
+
+function toggleMenu(){
+    document.querySelector('.sidebar').classList.toggle('active');
+    document.querySelector('.sidebar-overlay').classList.toggle('active');
+    const icon = document.querySelector('.menu-toggle i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+}
+
+// Close menu on window resize to desktop
+window.addEventListener('resize',function(){
+    if(window.innerWidth>1024){
+        document.querySelector('.sidebar').classList.remove('active');
+        document.querySelector('.sidebar-overlay').classList.remove('active');
+        const icon = document.querySelector('.menu-toggle i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+    }
+});
+</script>
+</body>
+</html>

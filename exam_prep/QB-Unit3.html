@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QB Unit 3 - Control Flow | C Programming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg: #0f0f1a;
+            --card: #1a1a2e;
+            --accent: #a855f7;
+            --text: #f1f5f9;
+            --text2: #94a3b8;
+            --border: #334155;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 30px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle { text-align: center; color: var(--text2); margin-bottom: 40px; font-size: 1.1rem; }
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+        .card h3 { color: var(--accent); margin-bottom: 20px; font-size: 1.15rem; line-height: 1.5; }
+        .card h4 { color: #818cf8; margin: 20px 0 12px; font-size: 1rem; }
+        .card p { color: var(--text2); margin-bottom: 12px; }
+        .card ul, .card ol { margin-left: 25px; margin-bottom: 15px; }
+        .card li { color: var(--text2); margin-bottom: 8px; line-height: 1.7; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px 16px; text-align: left; border: 1px solid var(--border); }
+        th { background: rgba(139, 92, 246, 0.2); color: var(--accent); font-weight: 600; }
+        td { color: var(--text2); }
+        pre {
+            background: #0d1117;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border: 1px solid #30363d;
+            position: relative;
+        }
+        pre .lang-label {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            font-size: 0.75rem;
+            color: #8b949e;
+            background: #21262d;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        code { font-family: 'Fira Code', monospace; font-size: 0.9rem; line-height: 1.6; color: #e6edf3; }
+        .keyword { color: #ff79c6; }
+        .type { color: #ff79c6; }
+        .func { color: #50fa7b; }
+        .string { color: #f1fa8c; }
+        .comment { color: #6272a4; font-style: italic; }
+        .number { color: #bd93f9; }
+        .back-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .answer-label { color: #10b981; font-weight: 600; font-size: 1rem; margin-bottom: 15px; display: block; }
+        .mermaid-box { background: #161b22; border-radius: 10px; padding: 20px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Notes
+        </a>
+        
+        <h1>📝 Question Bank - Unit 3</h1>
+        <p class="subtitle">Control Flow Statements • 26 Questions • Complete Q&A</p>
+
+        <!-- Q1 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q1. What are decision-making (conditional) statements in C?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Decision-making statements</strong> allow execution of different code blocks based on conditions.</p>
+            
+            <h4>Types of Conditional Statements:</h4>
+            <ul>
+                <li><strong>if</strong> - Execute block if condition is true</li>
+                <li><strong>if-else</strong> - Execute one of two blocks</li>
+                <li><strong>else-if ladder</strong> - Multiple conditions</li>
+                <li><strong>nested if</strong> - if inside another if</li>
+                <li><strong>switch</strong> - Select from multiple options</li>
+            </ul>
+        </div>
+
+        <!-- Q2 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q2. Explain the if statement with syntax and example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code><span class="keyword">if</span> (condition) {
+    <span class="comment">// code to execute if condition is true</span>
+}</code></pre>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> age = <span class="number">20</span>;
+    
+    <span class="keyword">if</span> (age >= <span class="number">18</span>) {
+        <span class="func">printf</span>(<span class="string">"You are eligible to vote.\n"</span>);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+            
+            <h4>Flowchart:</h4>
+            <div class="mermaid-box">
+                <div class="mermaid">
+flowchart TD
+    A([START]) --> B{Condition?}
+    B -->|True| C[Execute Statement]
+    B -->|False| D[Skip]
+    C --> E([END])
+    D --> E
+                </div>
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q3. Explain the if-else statement with syntax and example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code><span class="keyword">if</span> (condition) {
+    <span class="comment">// code if condition is true</span>
+} 
+<span class="keyword">else</span> {
+    <span class="comment">// code if condition is false</span>
+}</code></pre>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> num;
+    
+    <span class="func">printf</span>(<span class="string">"Enter a number: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;num);
+    
+    <span class="keyword">if</span> (num % <span class="number">2</span> == <span class="number">0</span>) {
+        <span class="func">printf</span>(<span class="string">"%d is even.\n"</span>, num);
+    } 
+    <span class="keyword">else</span> {
+        <span class="func">printf</span>(<span class="string">"%d is odd.\n"</span>, num);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q4 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q4. What is the else-if ladder? Provide an example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code><span class="keyword">if</span> (condition1) {
+    <span class="comment">// code block 1</span>
+} 
+<span class="keyword">else if</span> (condition2) {
+    <span class="comment">// code block 2</span>
+} 
+<span class="keyword">else if</span> (condition3) {
+    <span class="comment">// code block 3</span>
+} 
+<span class="keyword">else</span> {
+    <span class="comment">// default code block</span>
+}</code></pre>
+            
+            <h4>Example - Grade Calculator:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> marks;
+    
+    <span class="func">printf</span>(<span class="string">"Enter marks: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;marks);
+    
+    <span class="keyword">if</span> (marks >= <span class="number">90</span>) {
+        <span class="func">printf</span>(<span class="string">"Grade: A\n"</span>);
+    } 
+    <span class="keyword">else if</span> (marks >= <span class="number">80</span>) {
+        <span class="func">printf</span>(<span class="string">"Grade: B\n"</span>);
+    } 
+    <span class="keyword">else if</span> (marks >= <span class="number">70</span>) {
+        <span class="func">printf</span>(<span class="string">"Grade: C\n"</span>);
+    } 
+    <span class="keyword">else if</span> (marks >= <span class="number">60</span>) {
+        <span class="func">printf</span>(<span class="string">"Grade: D\n"</span>);
+    } 
+    <span class="keyword">else</span> {
+        <span class="func">printf</span>(<span class="string">"Grade: F\n"</span>);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q5 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q5. Explain the switch statement with syntax and example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code><span class="keyword">switch</span> (expression) {
+    <span class="keyword">case</span> value1:
+        <span class="comment">// statements</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> value2:
+        <span class="comment">// statements</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        <span class="comment">// default statements</span>
+}</code></pre>
+            
+            <h4>Example - Day of Week:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> day;
+    
+    <span class="func">printf</span>(<span class="string">"Enter day number (1-7): "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;day);
+    
+    <span class="keyword">switch</span> (day) {
+        <span class="keyword">case</span> <span class="number">1</span>:
+            <span class="func">printf</span>(<span class="string">"Sunday\n"</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="number">2</span>:
+            <span class="func">printf</span>(<span class="string">"Monday\n"</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="number">3</span>:
+            <span class="func">printf</span>(<span class="string">"Tuesday\n"</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="number">4</span>:
+            <span class="func">printf</span>(<span class="string">"Wednesday\n"</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="number">5</span>:
+            <span class="func">printf</span>(<span class="string">"Thursday\n"</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="number">6</span>:
+            <span class="func">printf</span>(<span class="string">"Friday\n"</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="number">7</span>:
+            <span class="func">printf</span>(<span class="string">"Saturday\n"</span>);
+            <span class="keyword">break</span>;
+        <span class="keyword">default</span>:
+            <span class="func">printf</span>(<span class="string">"Invalid day!\n"</span>);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q6 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q6. Differentiate between if-else and switch statement.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr><th>if-else</th><th>switch</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Can test any condition</td><td>Tests equality only</td></tr>
+                    <tr><td>Works with ranges</td><td>Works with discrete values</td></tr>
+                    <tr><td>Can use any data type in condition</td><td>Only int/char expression</td></tr>
+                    <tr><td>No fall-through issue</td><td>Fall-through if no break</td></tr>
+                    <tr><td>Slower for many conditions</td><td>Uses jump table (faster)</td></tr>
+                    <tr><td>More flexible</td><td>More readable for menus</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Q7 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q7-8. What are loops in C? Explain types of loops.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Loop:</strong> A control structure that repeats a block of code multiple times.</p>
+            
+            <h4>Types of Loops:</h4>
+            <table>
+                <thead>
+                    <tr><th>Loop Type</th><th>Description</th><th>Best Used When</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>for</td><td>Counter-controlled loop</td><td>Number of iterations known</td></tr>
+                    <tr><td>while</td><td>Entry-controlled loop</td><td>Condition checked first</td></tr>
+                    <tr><td>do-while</td><td>Exit-controlled loop</td><td>Execute at least once</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Q9 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q9. Explain the for loop with syntax and example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code><span class="keyword">for</span> (initialization; condition; update) {
+    <span class="comment">// loop body</span>
+}</code></pre>
+            
+            <h4>Example - Print 1 to 10:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> i;
+    
+    <span class="func">printf</span>(<span class="string">"Numbers 1 to 10:\n"</span>);
+    
+    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) {
+        <span class="func">printf</span>(<span class="string">"%d "</span>, i);
+    }
+    
+    <span class="func">printf</span>(<span class="string">"\n"</span>);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+            
+            <h4>Flowchart:</h4>
+            <div class="mermaid-box">
+                <div class="mermaid">
+flowchart TD
+    A([START]) --> B[Initialize i=1]
+    B --> C{i <= 10?}
+    C -->|Yes| D[Print i]
+    D --> E[i++]
+    E --> C
+    C -->|No| F([END])
+                </div>
+            </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q10. Explain the while loop with syntax and example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code><span class="keyword">while</span> (condition) {
+    <span class="comment">// loop body</span>
+    <span class="comment">// update statement</span>
+}</code></pre>
+            
+            <h4>Example - Sum of digits:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> num, sum = <span class="number">0</span>, digit;
+    
+    <span class="func">printf</span>(<span class="string">"Enter a number: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;num);
+    
+    <span class="keyword">while</span> (num > <span class="number">0</span>) {
+        digit = num % <span class="number">10</span>;     <span class="comment">// Get last digit</span>
+        sum = sum + digit;     <span class="comment">// Add to sum</span>
+        num = num / <span class="number">10</span>;        <span class="comment">// Remove last digit</span>
+    }
+    
+    <span class="func">printf</span>(<span class="string">"Sum of digits: %d\n"</span>, sum);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q11 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q11. Explain the do-while loop with syntax and example.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code><span class="keyword">do</span> {
+    <span class="comment">// loop body</span>
+} <span class="keyword">while</span> (condition);</code></pre>
+            
+            <h4>Key Point:</h4>
+            <p>Executes at least once, even if condition is false.</p>
+            
+            <h4>Example - Menu-driven program:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> choice;
+    
+    <span class="keyword">do</span> {
+        <span class="func">printf</span>(<span class="string">"\n=== MENU ===\n"</span>);
+        <span class="func">printf</span>(<span class="string">"1. Option 1\n"</span>);
+        <span class="func">printf</span>(<span class="string">"2. Option 2\n"</span>);
+        <span class="func">printf</span>(<span class="string">"3. Exit\n"</span>);
+        <span class="func">printf</span>(<span class="string">"Enter choice: "</span>);
+        <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;choice);
+        
+        <span class="keyword">switch</span> (choice) {
+            <span class="keyword">case</span> <span class="number">1</span>:
+                <span class="func">printf</span>(<span class="string">"You selected Option 1\n"</span>);
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="number">2</span>:
+                <span class="func">printf</span>(<span class="string">"You selected Option 2\n"</span>);
+                <span class="keyword">break</span>;
+            <span class="keyword">case</span> <span class="number">3</span>:
+                <span class="func">printf</span>(<span class="string">"Exiting...\n"</span>);
+                <span class="keyword">break</span>;
+            <span class="keyword">default</span>:
+                <span class="func">printf</span>(<span class="string">"Invalid choice!\n"</span>);
+        }
+    } <span class="keyword">while</span> (choice != <span class="number">3</span>);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q12 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q12. Differentiate between while and do-while loops.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr><th>while Loop</th><th>do-while Loop</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Entry-controlled</td><td>Exit-controlled</td></tr>
+                    <tr><td>Condition checked first</td><td>Condition checked after body</td></tr>
+                    <tr><td>May not execute at all</td><td>Executes at least once</td></tr>
+                    <tr><td>Syntax: while(cond){}</td><td>Syntax: do{}while(cond);</td></tr>
+                    <tr><td>No semicolon after }</td><td>Semicolon after while</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Example Comparison:</h4>
+            <pre><span class="lang-label">C</span><code><span class="type">int</span> x = <span class="number">0</span>;
+
+<span class="comment">// while - won't execute (condition false)</span>
+<span class="keyword">while</span> (x > <span class="number">0</span>) {
+    <span class="func">printf</span>(<span class="string">"while\n"</span>);
+    x--;
+}
+
+<span class="comment">// do-while - executes once (then condition false)</span>
+<span class="keyword">do</span> {
+    <span class="func">printf</span>(<span class="string">"do-while\n"</span>);
+    x--;
+} <span class="keyword">while</span> (x > <span class="number">0</span>);</code></pre>
+        </div>
+
+        <!-- Q13-14 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q13-14. Explain break and continue statements.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>break Statement:</h4>
+            <ul>
+                <li>Immediately exits the loop</li>
+                <li>Transfers control to the statement after the loop</li>
+                <li>Used in loops and switch</li>
+            </ul>
+            
+            <h4>continue Statement:</h4>
+            <ul>
+                <li>Skips current iteration</li>
+                <li>Jumps to next iteration</li>
+                <li>Used only in loops</li>
+            </ul>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> i;
+    
+    <span class="comment">// break example - stops at 5</span>
+    <span class="func">printf</span>(<span class="string">"Break example: "</span>);
+    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) {
+        <span class="keyword">if</span> (i == <span class="number">5</span>) {
+            <span class="keyword">break</span>;  <span class="comment">// Exit loop</span>
+        }
+        <span class="func">printf</span>(<span class="string">"%d "</span>, i);
+    }
+    <span class="comment">// Output: 1 2 3 4</span>
+    
+    <span class="func">printf</span>(<span class="string">"\n"</span>);
+    
+    <span class="comment">// continue example - skips 5</span>
+    <span class="func">printf</span>(<span class="string">"Continue example: "</span>);
+    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) {
+        <span class="keyword">if</span> (i == <span class="number">5</span>) {
+            <span class="keyword">continue</span>;  <span class="comment">// Skip this iteration</span>
+        }
+        <span class="func">printf</span>(<span class="string">"%d "</span>, i);
+    }
+    <span class="comment">// Output: 1 2 3 4 6 7 8 9 10</span>
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q15-16 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q15-16. Write programs for factorial and Fibonacci series.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Program 1 - Factorial:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> n, i;
+    <span class="type">long</span> factorial = <span class="number">1</span>;
+    
+    <span class="func">printf</span>(<span class="string">"Enter a number: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;n);
+    
+    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; i++) {
+        factorial = factorial * i;
+    }
+    
+    <span class="func">printf</span>(<span class="string">"Factorial of %d = %ld\n"</span>, n, factorial);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+            
+            <h4>Program 2 - Fibonacci Series:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> n, i;
+    <span class="type">int</span> first = <span class="number">0</span>, second = <span class="number">1</span>, next;
+    
+    <span class="func">printf</span>(<span class="string">"Enter number of terms: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;n);
+    
+    <span class="func">printf</span>(<span class="string">"Fibonacci Series: "</span>);
+    
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++) {
+        <span class="keyword">if</span> (i &lt;= <span class="number">1</span>) {
+            next = i;
+        } 
+        <span class="keyword">else</span> {
+            next = first + second;
+            first = second;
+            second = next;
+        }
+        <span class="func">printf</span>(<span class="string">"%d "</span>, next);
+    }
+    
+    <span class="func">printf</span>(<span class="string">"\n"</span>);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q17-20 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q17-20. Number Pattern Programs</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Pattern 1 - Right Triangle:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> i, j, n = <span class="number">5</span>;
+    
+    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; i++) {
+        <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= i; j++) {
+            <span class="func">printf</span>(<span class="string">"* "</span>);
+        }
+        <span class="func">printf</span>(<span class="string">"\n"</span>);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+
+<span class="comment">/*
+Output:
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+*/</span></code></pre>
+            
+            <h4>Pattern 2 - Number Pyramid:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> i, j, n = <span class="number">5</span>;
+    
+    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; i++) {
+        <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= i; j++) {
+            <span class="func">printf</span>(<span class="string">"%d "</span>, j);
+        }
+        <span class="func">printf</span>(<span class="string">"\n"</span>);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+
+<span class="comment">/*
+Output:
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+*/</span></code></pre>
+            
+            <h4>Pattern 3 - Inverted Triangle:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> i, j, n = <span class="number">5</span>;
+    
+    <span class="keyword">for</span> (i = n; i >= <span class="number">1</span>; i--) {
+        <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= i; j++) {
+            <span class="func">printf</span>(<span class="string">"* "</span>);
+        }
+        <span class="func">printf</span>(<span class="string">"\n"</span>);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+
+<span class="comment">/*
+Output:
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+*/</span></code></pre>
+        </div>
+
+        <!-- Q21-23 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q21-23. Prime Number, Palindrome, and Armstrong Programs</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Program 1 - Check Prime Number:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> num, i, isPrime = <span class="number">1</span>;
+    
+    <span class="func">printf</span>(<span class="string">"Enter a number: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;num);
+    
+    <span class="keyword">if</span> (num &lt;= <span class="number">1</span>) {
+        isPrime = <span class="number">0</span>;
+    } 
+    <span class="keyword">else</span> {
+        <span class="keyword">for</span> (i = <span class="number">2</span>; i * i &lt;= num; i++) {
+            <span class="keyword">if</span> (num % i == <span class="number">0</span>) {
+                isPrime = <span class="number">0</span>;
+                <span class="keyword">break</span>;
+            }
+        }
+    }
+    
+    <span class="keyword">if</span> (isPrime) {
+        <span class="func">printf</span>(<span class="string">"%d is a Prime number.\n"</span>, num);
+    } 
+    <span class="keyword">else</span> {
+        <span class="func">printf</span>(<span class="string">"%d is not a Prime number.\n"</span>, num);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+            
+            <h4>Program 2 - Check Palindrome:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> num, original, reversed = <span class="number">0</span>, digit;
+    
+    <span class="func">printf</span>(<span class="string">"Enter a number: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;num);
+    
+    original = num;
+    
+    <span class="keyword">while</span> (num > <span class="number">0</span>) {
+        digit = num % <span class="number">10</span>;
+        reversed = reversed * <span class="number">10</span> + digit;
+        num = num / <span class="number">10</span>;
+    }
+    
+    <span class="keyword">if</span> (original == reversed) {
+        <span class="func">printf</span>(<span class="string">"%d is a Palindrome.\n"</span>, original);
+    } 
+    <span class="keyword">else</span> {
+        <span class="func">printf</span>(<span class="string">"%d is not a Palindrome.\n"</span>, original);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+            
+            <h4>Program 3 - Check Armstrong Number:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+<span class="keyword">#include</span> &lt;math.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> num, original, digits = <span class="number">0</span>, sum = <span class="number">0</span>, digit;
+    
+    <span class="func">printf</span>(<span class="string">"Enter a number: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;num);
+    
+    original = num;
+    
+    <span class="comment">// Count digits</span>
+    <span class="keyword">while</span> (num > <span class="number">0</span>) {
+        digits++;
+        num = num / <span class="number">10</span>;
+    }
+    
+    num = original;
+    
+    <span class="comment">// Calculate sum of powers</span>
+    <span class="keyword">while</span> (num > <span class="number">0</span>) {
+        digit = num % <span class="number">10</span>;
+        sum = sum + <span class="func">pow</span>(digit, digits);
+        num = num / <span class="number">10</span>;
+    }
+    
+    <span class="keyword">if</span> (sum == original) {
+        <span class="func">printf</span>(<span class="string">"%d is an Armstrong number.\n"</span>, original);
+    } 
+    <span class="keyword">else</span> {
+        <span class="func">printf</span>(<span class="string">"%d is not an Armstrong number.\n"</span>, original);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q24-26 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q24-26. Calculator, goto Statement, and Nested Loops</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Simple Calculator:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">char</span> operator;
+    <span class="type">float</span> num1, num2, result;
+    
+    <span class="func">printf</span>(<span class="string">"Enter operator (+, -, *, /): "</span>);
+    <span class="func">scanf</span>(<span class="string">"%c"</span>, &amp;operator);
+    
+    <span class="func">printf</span>(<span class="string">"Enter two numbers: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%f %f"</span>, &amp;num1, &amp;num2);
+    
+    <span class="keyword">switch</span> (operator) {
+        <span class="keyword">case</span> <span class="string">'+'</span>:
+            result = num1 + num2;
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="string">'-'</span>:
+            result = num1 - num2;
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="string">'*'</span>:
+            result = num1 * num2;
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> <span class="string">'/'</span>:
+            <span class="keyword">if</span> (num2 != <span class="number">0</span>) {
+                result = num1 / num2;
+            } 
+            <span class="keyword">else</span> {
+                <span class="func">printf</span>(<span class="string">"Error: Division by zero!\n"</span>);
+                <span class="keyword">return</span> <span class="number">1</span>;
+            }
+            <span class="keyword">break</span>;
+        <span class="keyword">default</span>:
+            <span class="func">printf</span>(<span class="string">"Invalid operator!\n"</span>);
+            <span class="keyword">return</span> <span class="number">1</span>;
+    }
+    
+    <span class="func">printf</span>(<span class="string">"Result: %.2f\n"</span>, result);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+            
+            <h4>goto Statement (Use Sparingly!):</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> i = <span class="number">1</span>;
+    
+loop:
+    <span class="func">printf</span>(<span class="string">"%d "</span>, i);
+    i++;
+    
+    <span class="keyword">if</span> (i &lt;= <span class="number">5</span>) {
+        <span class="keyword">goto</span> loop;  <span class="comment">// Jump back to loop label</span>
+    }
+    
+    <span class="func">printf</span>(<span class="string">"\n"</span>);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+            
+            <h4>Nested Loops - Multiplication Table:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> i, j;
+    
+    <span class="func">printf</span>(<span class="string">"Multiplication Table (1-10):\n\n"</span>);
+    
+    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) {
+        <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= <span class="number">10</span>; j++) {
+            <span class="func">printf</span>(<span class="string">"%4d"</span>, i * j);
+        }
+        <span class="func">printf</span>(<span class="string">"\n"</span>);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+    </div>
+    
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark'
+        });
+    </script>
+</body>
+</html>

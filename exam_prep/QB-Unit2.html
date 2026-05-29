@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QB Unit 2 - Operators & Expressions | C Programming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0f0f1a;
+            --card: #1a1a2e;
+            --accent: #a855f7;
+            --text: #f1f5f9;
+            --text2: #94a3b8;
+            --border: #334155;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 30px;
+        }
+        
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: var(--text2);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+        
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.15rem;
+            line-height: 1.5;
+        }
+        
+        .card h4 {
+            color: #818cf8;
+            margin: 20px 0 12px;
+            font-size: 1rem;
+        }
+        
+        .card p { color: var(--text2); margin-bottom: 12px; }
+        
+        .card ul, .card ol { margin-left: 25px; margin-bottom: 15px; }
+        
+        .card li { color: var(--text2); margin-bottom: 8px; line-height: 1.7; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        
+        th, td { padding: 12px 16px; text-align: left; border: 1px solid var(--border); }
+        
+        th { background: rgba(139, 92, 246, 0.2); color: var(--accent); font-weight: 600; }
+        
+        td { color: var(--text2); }
+        
+        pre {
+            background: #0d1117;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border: 1px solid #30363d;
+            position: relative;
+        }
+        
+        pre .lang-label {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            font-size: 0.75rem;
+            color: #8b949e;
+            background: #21262d;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #e6edf3;
+        }
+        
+        .keyword { color: #ff79c6; }
+        .type { color: #ff79c6; }
+        .func { color: #50fa7b; }
+        .string { color: #f1fa8c; }
+        .comment { color: #6272a4; font-style: italic; }
+        .number { color: #bd93f9; }
+        
+        .back-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .back-btn:hover { background: #9333ea; }
+        
+        .answer-label {
+            color: #10b981;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .tip {
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Notes
+        </a>
+        
+        <h1>📝 Question Bank - Unit 2</h1>
+        <p class="subtitle">Operators and Expressions • 27 Questions • Complete Q&A</p>
+
+        <!-- Q1 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q1. What are the different arithmetic operators in C? Provide examples for each.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr><th>Operator</th><th>Name</th><th>Example</th><th>Result</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>+</td><td>Addition</td><td>5 + 3</td><td>8</td></tr>
+                    <tr><td>-</td><td>Subtraction</td><td>5 - 3</td><td>2</td></tr>
+                    <tr><td>*</td><td>Multiplication</td><td>5 * 3</td><td>15</td></tr>
+                    <tr><td>/</td><td>Division</td><td>5 / 2</td><td>2 (int), 2.5 (float)</td></tr>
+                    <tr><td>%</td><td>Modulus</td><td>5 % 2</td><td>1 (remainder)</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Program Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> a = <span class="number">10</span>, b = <span class="number">3</span>;
+    
+    <span class="func">printf</span>(<span class="string">"Addition: %d\n"</span>, a + b);
+    <span class="func">printf</span>(<span class="string">"Subtraction: %d\n"</span>, a - b);
+    <span class="func">printf</span>(<span class="string">"Multiplication: %d\n"</span>, a * b);
+    <span class="func">printf</span>(<span class="string">"Division: %d\n"</span>, a / b);
+    <span class="func">printf</span>(<span class="string">"Modulus: %d\n"</span>, a % b);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q2 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q2. How does integer division differ from floating-point division in C?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr><th>Integer Division</th><th>Floating-Point Division</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Operands are integers</td><td>At least one operand is float</td></tr>
+                    <tr><td>Result is integer</td><td>Result is float</td></tr>
+                    <tr><td>Decimal part truncated</td><td>Decimal part preserved</td></tr>
+                    <tr><td>Example: 5/2 = 2</td><td>Example: 5.0/2 = 2.5</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="type">int</span> a = <span class="number">5</span>, b = <span class="number">2</span>;
+
+<span class="type">int</span> int_result = a / b;           <span class="comment">// Result: 2</span>
+
+<span class="type">float</span> float_result = a / b;       <span class="comment">// Result: 2.0 (still integer division)</span>
+
+<span class="type">float</span> correct_result = (<span class="type">float</span>)a / b;  <span class="comment">// Result: 2.5 (float division)</span></code></pre>
+        </div>
+
+        <!-- Q3 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q3. List all relational operators in C and give an example of each.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Relational Operators</strong> return 1 for true, 0 for false:</p>
+            
+            <table>
+                <thead>
+                    <tr><th>Operator</th><th>Meaning</th><th>Example</th><th>Result</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>==</td><td>Equal to</td><td>5 == 5</td><td>1 (true)</td></tr>
+                    <tr><td>!=</td><td>Not equal to</td><td>5 != 3</td><td>1 (true)</td></tr>
+                    <tr><td>&lt;</td><td>Less than</td><td>5 &lt; 3</td><td>0 (false)</td></tr>
+                    <tr><td>&gt;</td><td>Greater than</td><td>5 &gt; 3</td><td>1 (true)</td></tr>
+                    <tr><td>&lt;=</td><td>Less than or equal</td><td>5 &lt;= 5</td><td>1 (true)</td></tr>
+                    <tr><td>&gt;=</td><td>Greater than or equal</td><td>5 &gt;= 3</td><td>1 (true)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Q4 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q4. Write a C program to compare two integers and display whether they are equal or not.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> num1, num2;
+    
+    <span class="comment">// Input two numbers</span>
+    <span class="func">printf</span>(<span class="string">"Enter first number: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;num1);
+    
+    <span class="func">printf</span>(<span class="string">"Enter second number: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;num2);
+    
+    <span class="comment">// Compare using relational operator</span>
+    <span class="keyword">if</span> (num1 == num2) {
+        <span class="func">printf</span>(<span class="string">"%d and %d are equal.\n"</span>, num1, num2);
+    } 
+    <span class="keyword">else</span> {
+        <span class="func">printf</span>(<span class="string">"%d and %d are not equal.\n"</span>, num1, num2);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q5 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q5. How do relational operators interact with if-else statements in C?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p>Relational operators create conditions for if-else statements.</p>
+            
+            <h4>Interaction:</h4>
+            <ul>
+                <li>Relational operators return 1 (true) or 0 (false)</li>
+                <li>if-else uses these boolean results</li>
+                <li>If condition is true (1), if-block executes</li>
+                <li>If condition is false (0), else-block executes</li>
+            </ul>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> age = <span class="number">20</span>;
+    
+    <span class="comment">// Relational operator in if condition</span>
+    <span class="keyword">if</span> (age >= <span class="number">18</span>) {  <span class="comment">// Returns 1 (true)</span>
+        <span class="func">printf</span>(<span class="string">"Eligible to vote.\n"</span>);
+    } 
+    <span class="keyword">else</span> {  <span class="comment">// Would execute if false</span>
+        <span class="func">printf</span>(<span class="string">"Not eligible to vote.\n"</span>);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q6 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q6. What are the logical operators available in C? Provide examples.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Logical Operators:</h4>
+            
+            <p><strong>&amp;&amp; (Logical AND):</strong> Both conditions must be true</p>
+            <pre><span class="lang-label">C</span><code>(5 > 3) &amp;&amp; (3 > 1)  <span class="comment">// Returns 1 (true)</span></code></pre>
+            
+            <p><strong>|| (Logical OR):</strong> At least one condition must be true</p>
+            <pre><span class="lang-label">C</span><code>(5 > 3) || (3 < 1)  <span class="comment">// Returns 1 (true)</span></code></pre>
+            
+            <p><strong>! (Logical NOT):</strong> Reverses the result</p>
+            <pre><span class="lang-label">C</span><code>!(5 > 3)  <span class="comment">// Returns 0 (false)</span></code></pre>
+            
+            <h4>Truth Tables:</h4>
+            <table>
+                <thead>
+                    <tr><th>AND (&amp;&amp;)</th><th>OR (||)</th><th>NOT (!)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>T && T = T</td><td>T || T = T</td><td>!T = F</td></tr>
+                    <tr><td>T && F = F</td><td>T || F = T</td><td>!F = T</td></tr>
+                    <tr><td>F && T = F</td><td>F || T = T</td><td></td></tr>
+                    <tr><td>F && F = F</td><td>F || F = F</td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Q7 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q7. Explain the difference between logical AND (&amp;&amp;) and logical OR (||) operators. What is the result of (5 > 3) &amp;&amp; (3 < 2)?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr><th>Logical AND (&amp;&amp;)</th><th>Logical OR (||)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Both conditions must be true</td><td>At least one condition true</td></tr>
+                    <tr><td>Returns 1 only if all true</td><td>Returns 1 if any true</td></tr>
+                    <tr><td>Stops if first is false (short-circuit)</td><td>Stops if first is true (short-circuit)</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Expression Evaluation:</h4>
+            <pre><span class="lang-label">Evaluation</span><code>(5 > 3) &amp;&amp; (3 < 2)
+
+Step 1: (5 > 3) = 1 (true)
+Step 2: (3 < 2) = 0 (false)
+Step 3: 1 &amp;&amp; 0 = 0 (false)
+
+Result: 0 (false)</code></pre>
+        </div>
+
+        <!-- Q8 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q8. List different assignment operators in C. Explain the difference between = and == in C.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Assignment Operators:</h4>
+            <table>
+                <thead>
+                    <tr><th>Operator</th><th>Example</th><th>Equivalent</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>=</td><td>x = 5</td><td>Simple assignment</td></tr>
+                    <tr><td>+=</td><td>x += 3</td><td>x = x + 3</td></tr>
+                    <tr><td>-=</td><td>x -= 2</td><td>x = x - 2</td></tr>
+                    <tr><td>*=</td><td>x *= 2</td><td>x = x * 2</td></tr>
+                    <tr><td>/=</td><td>x /= 2</td><td>x = x / 2</td></tr>
+                    <tr><td>%=</td><td>x %= 2</td><td>x = x % 2</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Difference between = and ==:</h4>
+            <table>
+                <thead>
+                    <tr><th>= (Assignment)</th><th>== (Equality)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Assigns value to variable</td><td>Compares two values</td></tr>
+                    <tr><td>Example: x = 5</td><td>Example: x == 5</td></tr>
+                    <tr><td>Returns assigned value</td><td>Returns 1 (true) or 0 (false)</td></tr>
+                    <tr><td>Used in declarations</td><td>Used in conditions</td></tr>
+                </tbody>
+            </table>
+            
+            <div class="tip">
+                <h4>⚠️ Common Error:</h4>
+                <pre><span class="lang-label">C</span><code><span class="keyword">if</span> (x = <span class="number">5</span>)   <span class="comment">// Always true (assigns 5 to x) - WRONG!</span>
+
+<span class="keyword">if</span> (x == <span class="number">5</span>)  <span class="comment">// Checks if x equals 5 - CORRECT!</span></code></pre>
+            </div>
+        </div>
+
+        <!-- Q9-10 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q9-10. How do compound assignment operators work? Write a program demonstrating them.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Compound Assignment Operators:</strong> Perform operation and assignment in one step.</p>
+            
+            <h4>Working:</h4>
+            <ul>
+                <li><code>x += y</code> is equivalent to <code>x = x + y</code></li>
+                <li><code>x -= y</code> is equivalent to <code>x = x - y</code></li>
+                <li><code>x *= y</code> is equivalent to <code>x = x * y</code></li>
+                <li><code>x /= y</code> is equivalent to <code>x = x / y</code></li>
+                <li><code>x %= y</code> is equivalent to <code>x = x % y</code></li>
+            </ul>
+            
+            <h4>Program:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> a = <span class="number">10</span>, b = <span class="number">3</span>;
+    
+    <span class="func">printf</span>(<span class="string">"Initial values: a = %d, b = %d\n\n"</span>, a, b);
+    
+    <span class="comment">// Using assignment operators</span>
+    a += b;  <span class="comment">// a = a + b</span>
+    <span class="func">printf</span>(<span class="string">"After a += b: a = %d\n"</span>, a);
+    
+    a -= b;  <span class="comment">// a = a - b</span>
+    <span class="func">printf</span>(<span class="string">"After a -= b: a = %d\n"</span>, a);
+    
+    a *= b;  <span class="comment">// a = a * b</span>
+    <span class="func">printf</span>(<span class="string">"After a *= b: a = %d\n"</span>, a);
+    
+    a /= b;  <span class="comment">// a = a / b</span>
+    <span class="func">printf</span>(<span class="string">"After a /= b: a = %d\n"</span>, a);
+    
+    a %= b;  <span class="comment">// a = a % b</span>
+    <span class="func">printf</span>(<span class="string">"After a %%= b: a = %d\n"</span>, a);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q11 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q11. What are the increment and decrement operators in C? Provide examples.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Increment/Decrement Operators:</h4>
+            <ul>
+                <li><strong>++</strong> Increment: Increases value by 1</li>
+                <li><strong>--</strong> Decrement: Decreases value by 1</li>
+            </ul>
+            
+            <h4>Types:</h4>
+            <table>
+                <thead>
+                    <tr><th>Type</th><th>Syntax</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Pre-increment</td><td>++x</td><td>Increment first, then use</td></tr>
+                    <tr><td>Post-increment</td><td>x++</td><td>Use first, then increment</td></tr>
+                    <tr><td>Pre-decrement</td><td>--x</td><td>Decrement first, then use</td></tr>
+                    <tr><td>Post-decrement</td><td>x--</td><td>Use first, then decrement</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Examples:</h4>
+            <pre><span class="lang-label">C</span><code><span class="type">int</span> x = <span class="number">5</span>;
+
+<span class="comment">// Post-increment</span>
+<span class="func">printf</span>(<span class="string">"%d\n"</span>, x++);  <span class="comment">// Prints 5, then x becomes 6</span>
+<span class="func">printf</span>(<span class="string">"%d\n"</span>, x);    <span class="comment">// Prints 6</span>
+
+<span class="comment">// Pre-increment</span>
+<span class="func">printf</span>(<span class="string">"%d\n"</span>, ++x);  <span class="comment">// x becomes 7, then prints 7</span>
+
+<span class="comment">// Post-decrement</span>
+<span class="func">printf</span>(<span class="string">"%d\n"</span>, x--);  <span class="comment">// Prints 7, then x becomes 6</span>
+
+<span class="comment">// Pre-decrement</span>
+<span class="func">printf</span>(<span class="string">"%d\n"</span>, --x);  <span class="comment">// x becomes 5, then prints 5</span></code></pre>
+        </div>
+
+        <!-- Q12 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q12. What will be the output of the following code snippet?</h3>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> x = <span class="number">5</span>;
+    
+    <span class="func">printf</span>(<span class="string">"%d\n"</span>, x++);
+    <span class="func">printf</span>(<span class="string">"%d\n"</span>, ++x);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Output:</h4>
+            <pre><span class="lang-label">Output</span><code>5
+7</code></pre>
+            
+            <h4>Explanation:</h4>
+            <ul>
+                <li><code>printf("%d\n", x++);</code> - Prints 5 (post-increment), then x becomes 6</li>
+                <li><code>printf("%d\n", ++x);</code> - x becomes 7 (pre-increment), then prints 7</li>
+            </ul>
+        </div>
+
+        <!-- Q13-14 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q13-14. What is the conditional (ternary) operator? Write a program to find the largest of two numbers.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Conditional (Ternary) Operator: <code>? :</code></strong></p>
+            <ul>
+                <li>Compact form of if-else</li>
+                <li>Takes three operands</li>
+            </ul>
+            
+            <h4>Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code>condition ? expression1 : expression2;
+
+<span class="comment">// If condition is true → expression1 executes</span>
+<span class="comment">// If condition is false → expression2 executes</span></code></pre>
+            
+            <h4>Program to find largest of two numbers:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> num1, num2, largest;
+    
+    <span class="comment">// Input two numbers</span>
+    <span class="func">printf</span>(<span class="string">"Enter first number: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;num1);
+    
+    <span class="func">printf</span>(<span class="string">"Enter second number: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;num2);
+    
+    <span class="comment">// Using conditional operator</span>
+    largest = (num1 > num2) ? num1 : num2;
+    
+    <span class="func">printf</span>(<span class="string">"The largest number is: %d\n"</span>, largest);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q15 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q15. List all the bitwise operators in C and give an example of each.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Bitwise Operators</strong> work on binary level:</p>
+            
+            <table>
+                <thead>
+                    <tr><th>Operator</th><th>Name</th><th>Example</th><th>Binary</th><th>Result</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>&amp;</td><td>Bitwise AND</td><td>5 &amp; 3</td><td>0101 &amp; 0011</td><td>0001 = 1</td></tr>
+                    <tr><td>|</td><td>Bitwise OR</td><td>5 | 3</td><td>0101 | 0011</td><td>0111 = 7</td></tr>
+                    <tr><td>^</td><td>Bitwise XOR</td><td>5 ^ 3</td><td>0101 ^ 0011</td><td>0110 = 6</td></tr>
+                    <tr><td>~</td><td>Bitwise NOT</td><td>~5</td><td>~0101</td><td>-6</td></tr>
+                    <tr><td>&lt;&lt;</td><td>Left shift</td><td>5 &lt;&lt; 1</td><td>0101 → 1010</td><td>10</td></tr>
+                    <tr><td>&gt;&gt;</td><td>Right shift</td><td>5 &gt;&gt; 1</td><td>0101 → 0010</td><td>2</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Program Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> a = <span class="number">5</span>, b = <span class="number">3</span>;  <span class="comment">// 5 = 0101, 3 = 0011</span>
+    
+    <span class="func">printf</span>(<span class="string">"a &amp; b = %d\n"</span>, a &amp; b);    <span class="comment">// 1</span>
+    <span class="func">printf</span>(<span class="string">"a | b = %d\n"</span>, a | b);    <span class="comment">// 7</span>
+    <span class="func">printf</span>(<span class="string">"a ^ b = %d\n"</span>, a ^ b);    <span class="comment">// 6</span>
+    <span class="func">printf</span>(<span class="string">"~a = %d\n"</span>, ~a);          <span class="comment">// -6</span>
+    <span class="func">printf</span>(<span class="string">"a &lt;&lt; 1 = %d\n"</span>, a &lt;&lt; <span class="number">1</span>);  <span class="comment">// 10</span>
+    <span class="func">printf</span>(<span class="string">"a &gt;&gt; 1 = %d\n"</span>, a &gt;&gt; <span class="number">1</span>);  <span class="comment">// 2</span>
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q16-19 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q16-19. Special Operators: Bitwise Shift, sizeof, and Comma Operators</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Bitwise Shift Operators:</h4>
+            <ul>
+                <li><strong>&lt;&lt; Left shift:</strong> x &lt;&lt; n = x * 2^n</li>
+                <li><strong>&gt;&gt; Right shift:</strong> x &gt;&gt; n = x / 2^n</li>
+            </ul>
+            
+            <h4>sizeof() Operator:</h4>
+            <p>Returns size of data type/variable in bytes.</p>
+            
+            <h4>Comma Operator (,):</h4>
+            <p>Evaluates multiple expressions, returns value of last expression.</p>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="comment">// sizeof operator</span>
+    <span class="func">printf</span>(<span class="string">"Size of int: %lu bytes\n"</span>, <span class="keyword">sizeof</span>(<span class="type">int</span>));
+    <span class="func">printf</span>(<span class="string">"Size of float: %lu bytes\n"</span>, <span class="keyword">sizeof</span>(<span class="type">float</span>));
+    <span class="func">printf</span>(<span class="string">"Size of char: %lu bytes\n"</span>, <span class="keyword">sizeof</span>(<span class="type">char</span>));
+    <span class="func">printf</span>(<span class="string">"Size of double: %lu bytes\n"</span>, <span class="keyword">sizeof</span>(<span class="type">double</span>));
+    
+    <span class="comment">// Shift operators</span>
+    <span class="type">int</span> x = <span class="number">5</span>;  <span class="comment">// Binary: 00000101</span>
+    <span class="func">printf</span>(<span class="string">"5 &lt;&lt; 1 = %d\n"</span>, x &lt;&lt; <span class="number">1</span>);  <span class="comment">// 10 (5 * 2)</span>
+    <span class="func">printf</span>(<span class="string">"5 &gt;&gt; 1 = %d\n"</span>, x &gt;&gt; <span class="number">1</span>);  <span class="comment">// 2  (5 / 2)</span>
+    
+    <span class="comment">// Comma operator</span>
+    <span class="type">int</span> a, b, c;
+    a = <span class="number">5</span>, b = <span class="number">10</span>, c = <span class="number">15</span>;
+    
+    <span class="type">int</span> result = (a = <span class="number">5</span>, b = <span class="number">10</span>, a + b);  <span class="comment">// result = 15</span>
+    <span class="func">printf</span>(<span class="string">"Result: %d\n"</span>, result);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q20-23 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q20-23. Arithmetic Expressions and Operator Precedence</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Arithmetic Expressions:</h4>
+            <p>Combinations of operands and operators that evaluate to a numeric value.</p>
+            
+            <pre><span class="lang-label">C</span><code><span class="comment">// Simple expressions</span>
+<span class="type">int</span> a = <span class="number">5</span> + <span class="number">3</span>;        <span class="comment">// 8</span>
+<span class="type">int</span> b = <span class="number">10</span> - <span class="number">4</span>;       <span class="comment">// 6</span>
+<span class="type">int</span> c = <span class="number">6</span> * <span class="number">7</span>;        <span class="comment">// 42</span>
+<span class="type">float</span> d = <span class="number">15.0</span> / <span class="number">4.0</span>; <span class="comment">// 3.75</span>
+<span class="type">int</span> e = <span class="number">17</span> % <span class="number">5</span>;       <span class="comment">// 2</span>
+
+<span class="comment">// Complex expressions</span>
+<span class="type">float</span> result1 = (a + b) * c;
+<span class="type">float</span> result2 = a + b * c;  <span class="comment">// Different due to precedence</span></code></pre>
+            
+            <h4>Order of Evaluation for a + b * c - d / e:</h4>
+            <pre><span class="lang-label">Steps</span><code>Expression: a + b * c - d / e
+
+Step 1: b * c  (multiplication has highest precedence)
+Step 2: d / e  (division same as multiplication, left to right)
+Step 3: a + (result of b*c)
+Step 4: (result) - (result of d/e)
+
+Equivalent to: a + (b * c) - (d / e)</code></pre>
+            
+            <h4>Operator Precedence (Highest to Lowest):</h4>
+            <table>
+                <thead>
+                    <tr><th>Precedence</th><th>Operator</th><th>Associativity</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>()</td><td>Left to Right</td></tr>
+                    <tr><td>2</td><td>++ -- (postfix)</td><td>Left to Right</td></tr>
+                    <tr><td>3</td><td>++ -- (prefix)</td><td>Right to Left</td></tr>
+                    <tr><td>4</td><td>* / %</td><td>Left to Right</td></tr>
+                    <tr><td>5</td><td>+ -</td><td>Left to Right</td></tr>
+                    <tr><td>6</td><td>=</td><td>Right to Left</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Q24 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q24. Explain the difference between operator precedence and associativity.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr><th>Operator Precedence</th><th>Operator Associativity</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Which operation is done first</td><td>Direction of evaluation for same precedence</td></tr>
+                    <tr><td>Determines order between different operators</td><td>Determines order between same operators</td></tr>
+                    <tr><td>Example: * has higher precedence than +</td><td>Example: For + and -, left to right</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="type">int</span> result = <span class="number">10</span> - <span class="number">3</span> + <span class="number">2</span>;
+
+<span class="comment">// Left-to-right associativity:</span>
+<span class="comment">// (10 - 3) + 2 = 7 + 2 = 9</span>
+
+<span class="comment">// NOT: 10 - (3 + 2) = 10 - 5 = 5</span></code></pre>
+        </div>
+
+        <!-- Q25-27 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q25-27. Mathematical Functions in C (math.h)</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Common Mathematical Functions:</h4>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>sqrt(x)</td><td>Square root</td></tr>
+                    <tr><td>pow(x, y)</td><td>x raised to power y</td></tr>
+                    <tr><td>fabs(x)</td><td>Absolute value (float)</td></tr>
+                    <tr><td>ceil(x)</td><td>Round up to nearest integer</td></tr>
+                    <tr><td>floor(x)</td><td>Round down to nearest integer</td></tr>
+                    <tr><td>sin(x), cos(x), tan(x)</td><td>Trigonometric functions</td></tr>
+                    <tr><td>log(x)</td><td>Natural logarithm</td></tr>
+                    <tr><td>log10(x)</td><td>Base-10 logarithm</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Example Program:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+<span class="keyword">#include</span> &lt;math.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">double</span> num = <span class="number">25.0</span>;
+    
+    <span class="comment">// Using sqrt()</span>
+    <span class="func">printf</span>(<span class="string">"Square root of %.2f = %.2f\n"</span>, num, <span class="func">sqrt</span>(num));
+    
+    <span class="comment">// Using pow()</span>
+    <span class="func">printf</span>(<span class="string">"2^3 = %.2f\n"</span>, <span class="func">pow</span>(<span class="number">2</span>, <span class="number">3</span>));
+    
+    <span class="comment">// Using fabs()</span>
+    <span class="func">printf</span>(<span class="string">"Absolute value of -5.5 = %.2f\n"</span>, <span class="func">fabs</span>(-<span class="number">5.5</span>));
+    
+    <span class="comment">// Using ceil() and floor()</span>
+    <span class="func">printf</span>(<span class="string">"Ceil of 3.2 = %.2f\n"</span>, <span class="func">ceil</span>(<span class="number">3.2</span>));
+    <span class="func">printf</span>(<span class="string">"Floor of 3.8 = %.2f\n"</span>, <span class="func">floor</span>(<span class="number">3.8</span>));
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+
+<span class="comment">// Compile with: gcc program.c -lm</span></code></pre>
+        </div>
+
+    </div>
+</body>
+</html>

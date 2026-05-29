@@ -1,6 +1,6 @@
 # C Programming Journey 🚀
 
-This repository contains my practice codes and projects while learning C as my **first programming language**.
+This repository contains my practice codes, projects, and exam preparation materials while learning C as my **first programming language**.
 
 All the concepts and projects in this repository were learned and built by completing the **C Programming Course** by [Bro Code on YouTube](https://www.youtube.com/@BroCodez).
 
@@ -10,11 +10,11 @@ All the concepts and projects in this repository were learned and built by compl
 
 The files in this repository are organized as follows:
 
-### 🔄 [revesion/](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language/revesion)
+### 🔄 [revesion/](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language(clg)/revesion)
 Contains basic syntax practice and core concepts learned during the course:
-*   **[Core_Concepts.c](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language/revesion/Core_Concepts.c)**: A comprehensive reference file containing basic syntax, variables, data types, operators, loops, and control flow in C.
+*   **[Core_Concepts.c](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language(clg)/revesion/Core_Concepts.c)**: A comprehensive reference file containing basic syntax, variables, data types, operators, loops, and control flow in C.
 
-### 📁 [project/](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language/project)
+### 📁 [project/](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language(clg)/project)
 Contains all the interactive games and utility projects:
 *   **01_shopping_cart_program.c**: A simple interactive shopping cart program.
 *   **02_mad_libs_game.c**: A fun Mad Libs game using string inputs.
@@ -29,6 +29,11 @@ Contains all the interactive games and utility projects:
 *   **11_quiz_game.c**: A console-based quiz game.
 *   **12_digital_clock_program.c**: A simple digital clock implementation.
 *   **test.c**: Scratchpad/test file for trying out new C syntax.
+
+### 📝 [exam_prep/](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language(clg)/exam_prep)
+A comprehensive web portal containing notes, unit-wise question banks, and study guides for college end-term C programming exams (FPL/SPPU).
+*   **[index.html](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language(clg)/exam_prep/index.html)**: The homepage containing notes, Mermaid flowcharts, and study guides.
+*   **QB Files**: Question banks for each of the 5 units with detailed answers.
 
 ---
 

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QB Unit 4 - Arrays & Strings | C Programming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0f0f1a;
+            --card: #1a1a2e;
+            --accent: #a855f7;
+            --text: #f1f5f9;
+            --text2: #94a3b8;
+            --border: #334155;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 30px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle { text-align: center; color: var(--text2); margin-bottom: 40px; font-size: 1.1rem; }
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+        .card h3 { color: var(--accent); margin-bottom: 20px; font-size: 1.15rem; line-height: 1.5; }
+        .card h4 { color: #818cf8; margin: 20px 0 12px; font-size: 1rem; }
+        .card p { color: var(--text2); margin-bottom: 12px; }
+        .card ul, .card ol { margin-left: 25px; margin-bottom: 15px; }
+        .card li { color: var(--text2); margin-bottom: 8px; line-height: 1.7; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px 16px; text-align: left; border: 1px solid var(--border); }
+        th { background: rgba(139, 92, 246, 0.2); color: var(--accent); font-weight: 600; }
+        td { color: var(--text2); }
+        pre {
+            background: #0d1117;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border: 1px solid #30363d;
+            position: relative;
+        }
+        pre .lang-label {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            font-size: 0.75rem;
+            color: #8b949e;
+            background: #21262d;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        code { font-family: 'Fira Code', monospace; font-size: 0.9rem; line-height: 1.6; color: #e6edf3; }
+        .keyword { color: #ff79c6; }
+        .type { color: #ff79c6; }
+        .func { color: #50fa7b; }
+        .string { color: #f1fa8c; }
+        .comment { color: #6272a4; font-style: italic; }
+        .number { color: #bd93f9; }
+        .back-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .answer-label { color: #10b981; font-weight: 600; font-size: 1rem; margin-bottom: 15px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Notes
+        </a>
+        
+        <h1>📝 Question Bank - Unit 4</h1>
+        <p class="subtitle">Arrays & Strings • 17 Questions • Complete Q&A</p>
+
+        <!-- Q1 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q1. What is an Array in C Programming?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Array:</strong> A collection of similar data items stored in contiguous memory locations.</p>
+            
+            <h4>Key Characteristics:</h4>
+            <ul>
+                <li><strong>Homogeneous elements:</strong> All elements same data type</li>
+                <li><strong>Fixed size:</strong> Size defined at declaration</li>
+                <li><strong>Contiguous memory:</strong> Elements stored consecutively</li>
+                <li><strong>Index-based access:</strong> Starts from 0</li>
+                <li><strong>Random access:</strong> Direct access to any element</li>
+            </ul>
+            
+            <h4>Declaration Syntax:</h4>
+            <pre><span class="lang-label">Syntax</span><code>data_type array_name[size];</code></pre>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="type">int</span> marks[<span class="number">5</span>];        <span class="comment">// Array of 5 integers</span>
+<span class="type">float</span> prices[<span class="number">10</span>];    <span class="comment">// Array of 10 floats</span>
+<span class="type">char</span> name[<span class="number">20</span>];       <span class="comment">// Array of 20 characters</span></code></pre>
+            
+            <h4>Memory Representation:</h4>
+            <pre><span class="lang-label">Memory</span><code>Array: int arr[5] = {10, 20, 30, 40, 50}
+
+Index:   0    1    2    3    4
+Value:  10   20   30   40   50
+Address:1000 1004 1008 1012 1016 (4 bytes each)</code></pre>
+        </div>
+
+        <!-- Q2 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q2. How to create an Array?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Steps to create an array:</h4>
+            <ol>
+                <li><strong>Declaration:</strong> Specify type, name, and size</li>
+                <li><strong>Initialization:</strong> Assign initial values</li>
+                <li><strong>Access:</strong> Use index to access/modify elements</li>
+            </ol>
+            
+            <h4>Examples:</h4>
+            <pre><span class="lang-label">C</span><code><span class="comment">// Method 1: Declare and initialize later</span>
+<span class="type">int</span> numbers[<span class="number">5</span>];
+numbers[<span class="number">0</span>] = <span class="number">10</span>;
+numbers[<span class="number">1</span>] = <span class="number">20</span>;
+
+<span class="comment">// Method 2: Declare with initialization</span>
+<span class="type">int</span> arr1[<span class="number">5</span>] = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>};  <span class="comment">// All elements</span>
+<span class="type">int</span> arr2[<span class="number">5</span>] = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>};        <span class="comment">// Partial (rest = 0)</span>
+<span class="type">int</span> arr3[] = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>};   <span class="comment">// Size auto-calculated</span>
+
+<span class="comment">// Method 3: Character array</span>
+<span class="type">char</span> str1[<span class="number">6</span>] = {<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'\0'</span>};
+<span class="type">char</span> str2[<span class="number">6</span>] = <span class="string">"Hello"</span>;  <span class="comment">// '\0' added automatically</span>
+
+<span class="comment">// Method 4: 2D array</span>
+<span class="type">int</span> matrix[<span class="number">3</span>][<span class="number">3</span>] = {
+    {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>},
+    {<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>},
+    {<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>}
+};</code></pre>
+        </div>
+
+        <!-- Q3 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q3. What are the properties of an array?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Properties of Arrays:</h4>
+            <ul>
+                <li><strong>Fixed Size:</strong> Cannot change at runtime</li>
+                <li><strong>Homogeneous Elements:</strong> Same data type</li>
+                <li><strong>Contiguous Memory:</strong> Sequential storage</li>
+                <li><strong>Index-based Access:</strong> 0 to size-1</li>
+                <li><strong>Random Access:</strong> O(1) access time</li>
+                <li><strong>No Bounds Checking:</strong> C doesn't check boundaries</li>
+                <li><strong>Name = Base Address:</strong> Array name points to first element</li>
+            </ul>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> arr[<span class="number">5</span>] = {<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>};
+    
+    <span class="comment">// Size of array</span>
+    <span class="func">printf</span>(<span class="string">"Total size: %lu bytes\n"</span>, <span class="keyword">sizeof</span>(arr));
+    
+    <span class="comment">// Number of elements</span>
+    <span class="func">printf</span>(<span class="string">"Elements: %lu\n"</span>, <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]));
+    
+    <span class="comment">// Base address</span>
+    <span class="func">printf</span>(<span class="string">"Base address: %p\n"</span>, arr);
+    
+    <span class="comment">// Element access</span>
+    <span class="func">printf</span>(<span class="string">"Element at index 2: %d\n"</span>, arr[<span class="number">2</span>]);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q4 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q4. Advantages and disadvantages of Array?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>Advantages:</h4>
+            <ul>
+                <li><strong>Random Access:</strong> O(1) time complexity</li>
+                <li><strong>Memory Efficient:</strong> No extra overhead</li>
+                <li><strong>Cache Friendly:</strong> Contiguous storage</li>
+                <li><strong>Easy Implementation:</strong> Simple syntax</li>
+                <li><strong>Multi-dimensional:</strong> Support for matrices</li>
+            </ul>
+            
+            <h4>Disadvantages:</h4>
+            <ul>
+                <li><strong>Fixed Size:</strong> Cannot resize</li>
+                <li><strong>Memory Wastage:</strong> If size overestimated</li>
+                <li><strong>Insertion/Deletion:</strong> Expensive (shifting required)</li>
+                <li><strong>Homogeneous:</strong> Only one data type</li>
+                <li><strong>No Bounds Checking:</strong> Buffer overflow risk</li>
+            </ul>
+        </div>
+
+        <!-- Q5 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q5. Can we change the size of an array at run time?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>No, we cannot change the size of a static array at runtime in C.</strong></p>
+            
+            <h4>Alternatives for dynamic sizing:</h4>
+            
+            <p><strong>1. Dynamic Memory Allocation:</strong></p>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+<span class="keyword">#include</span> &lt;stdlib.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> *arr;
+    <span class="type">int</span> size = <span class="number">5</span>;
+    
+    <span class="comment">// Allocate memory</span>
+    arr = (<span class="type">int</span>*) <span class="func">malloc</span>(size * <span class="keyword">sizeof</span>(<span class="type">int</span>));
+    
+    <span class="comment">// Use array...</span>
+    
+    <span class="comment">// Resize to 10 elements</span>
+    size = <span class="number">10</span>;
+    arr = (<span class="type">int</span>*) <span class="func">realloc</span>(arr, size * <span class="keyword">sizeof</span>(<span class="type">int</span>));
+    
+    <span class="comment">// Free memory when done</span>
+    <span class="func">free</span>(arr);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+            
+            <p><strong>2. Variable Length Array (VLA) - C99:</strong></p>
+            <pre><span class="lang-label">C</span><code><span class="type">int</span> n;
+
+<span class="func">printf</span>(<span class="string">"Enter size: "</span>);
+<span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;n);
+
+<span class="type">int</span> arr[n];  <span class="comment">// Size determined at runtime</span></code></pre>
+        </div>
+
+        <!-- Q6 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q6. What is the default value of Array?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <table>
+                <thead>
+                    <tr><th>Array Type</th><th>Default Value</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Global arrays</td><td>Initialized to 0</td></tr>
+                    <tr><td>Static arrays</td><td>Initialized to 0</td></tr>
+                    <tr><td>Local arrays</td><td>Garbage values</td></tr>
+                    <tr><td>Partial initialization</td><td>Remaining = 0</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> global_arr[<span class="number">3</span>];  <span class="comment">// All elements = 0</span>
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> local_arr[<span class="number">3</span>];            <span class="comment">// Garbage values</span>
+    <span class="keyword">static</span> <span class="type">int</span> static_arr[<span class="number">3</span>];   <span class="comment">// All elements = 0</span>
+    <span class="type">int</span> partial[<span class="number">5</span>] = {<span class="number">1</span>, <span class="number">2</span>};    <span class="comment">// {1, 2, 0, 0, 0}</span>
+    
+    <span class="func">printf</span>(<span class="string">"Global: %d %d %d\n"</span>, 
+           global_arr[<span class="number">0</span>], global_arr[<span class="number">1</span>], global_arr[<span class="number">2</span>]);
+    
+    <span class="func">printf</span>(<span class="string">"Static: %d %d %d\n"</span>, 
+           static_arr[<span class="number">0</span>], static_arr[<span class="number">1</span>], static_arr[<span class="number">2</span>]);
+    
+    <span class="func">printf</span>(<span class="string">"Partial: %d %d %d %d %d\n"</span>, 
+           partial[<span class="number">0</span>], partial[<span class="number">1</span>], partial[<span class="number">2</span>], partial[<span class="number">3</span>], partial[<span class="number">4</span>]);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q7-8 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q7-8. What is a two-dimensional array? Why do we need multidimensional arrays?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Two-dimensional array:</strong> Array of arrays, representing rows and columns.</p>
+            
+            <h4>Declaration:</h4>
+            <pre><span class="lang-label">Syntax</span><code>data_type array_name[rows][columns];</code></pre>
+            
+            <h4>Why Multidimensional Arrays:</h4>
+            <ul>
+                <li>Represent matrices and tables</li>
+                <li>Game boards (chess, tic-tac-toe)</li>
+                <li>Image processing (pixels)</li>
+                <li>Scientific computing</li>
+                <li>Spreadsheet data</li>
+            </ul>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> matrix[<span class="number">3</span>][<span class="number">3</span>] = {
+        {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>},
+        {<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>},
+        {<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>}
+    };
+    
+    <span class="type">int</span> i, j;
+    
+    <span class="func">printf</span>(<span class="string">"Matrix:\n"</span>);
+    
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) {
+        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++) {
+            <span class="func">printf</span>(<span class="string">"%d\t"</span>, matrix[i][j]);
+        }
+        <span class="func">printf</span>(<span class="string">"\n"</span>);
+    }
+    
+    <span class="func">printf</span>(<span class="string">"\nElement at [1][2]: %d\n"</span>, matrix[<span class="number">1</span>][<span class="number">2</span>]);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q9 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q9. Write a program to sum values of a given array.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> n, i;
+    <span class="type">int</span> sum = <span class="number">0</span>;
+    
+    <span class="func">printf</span>(<span class="string">"Enter number of elements: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;n);
+    
+    <span class="type">int</span> arr[n];
+    
+    <span class="func">printf</span>(<span class="string">"Enter %d elements:\n"</span>, n);
+    
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++) {
+        <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;arr[i]);
+        sum += arr[i];
+    }
+    
+    <span class="func">printf</span>(<span class="string">"\nArray elements: "</span>);
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++) {
+        <span class="func">printf</span>(<span class="string">"%d "</span>, arr[i]);
+    }
+    
+    <span class="func">printf</span>(<span class="string">"\nSum = %d\n"</span>, sum);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q10 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q10. Write a program to insert an element at a specific position in array.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">int</span> arr[<span class="number">100</span>];
+    <span class="type">int</span> n, pos, element, i;
+    
+    <span class="func">printf</span>(<span class="string">"Enter size of array: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;n);
+    
+    <span class="func">printf</span>(<span class="string">"Enter %d elements:\n"</span>, n);
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++) {
+        <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;arr[i]);
+    }
+    
+    <span class="func">printf</span>(<span class="string">"Enter element to insert: "</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;element);
+    
+    <span class="func">printf</span>(<span class="string">"Enter position (1 to %d): "</span>, n + <span class="number">1</span>);
+    <span class="func">scanf</span>(<span class="string">"%d"</span>, &amp;pos);
+    
+    <span class="comment">// Shift elements to right</span>
+    <span class="keyword">for</span> (i = n; i >= pos; i--) {
+        arr[i] = arr[i - <span class="number">1</span>];
+    }
+    
+    <span class="comment">// Insert element</span>
+    arr[pos - <span class="number">1</span>] = element;
+    n++;
+    
+    <span class="func">printf</span>(<span class="string">"\nArray after insertion:\n"</span>);
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++) {
+        <span class="func">printf</span>(<span class="string">"%d "</span>, arr[i]);
+    }
+    <span class="func">printf</span>(<span class="string">"\n"</span>);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q11-12 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q11-12. What is a Character Array? How to declare and initialize it?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>Character Array:</strong> Array of characters, can be used to store strings.</p>
+            
+            <h4>Declaration and Initialization:</h4>
+            <pre><span class="lang-label">C</span><code><span class="comment">// Method 1: Character by character</span>
+<span class="type">char</span> str1[<span class="number">6</span>] = {<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'\0'</span>};
+
+<span class="comment">// Method 2: String literal</span>
+<span class="type">char</span> str2[<span class="number">6</span>] = <span class="string">"Hello"</span>;
+
+<span class="comment">// Method 3: Auto size</span>
+<span class="type">char</span> str3[] = <span class="string">"Hello"</span>;  <span class="comment">// Size = 6</span>
+
+<span class="comment">// Method 4: Pointer to string literal</span>
+<span class="type">char</span> *str4 = <span class="string">"Hello"</span>;  <span class="comment">// Read-only</span></code></pre>
+            
+            <h4>Memory Layout:</h4>
+            <pre><span class="lang-label">Memory</span><code>char str[6] = "Hello";
+
+Index:   0    1    2    3    4    5
+Value:  'H'  'e'  'l'  'l'  'o'  '\0'</code></pre>
+        </div>
+
+        <!-- Q13-14 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q13-14. What is a string in C? How to declare a string?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>String:</strong> Sequence of characters terminated with null character <code>\0</code>.</p>
+            
+            <h4>Characteristics:</h4>
+            <ul>
+                <li>Implemented as character array</li>
+                <li>Must end with \0 (null character)</li>
+                <li>String literals in double quotes</li>
+                <li>\0 has ASCII value 0</li>
+            </ul>
+            
+            <h4>Declaration:</h4>
+            <pre><span class="lang-label">C</span><code><span class="comment">// As character array</span>
+<span class="type">char</span> str[<span class="number">20</span>];  <span class="comment">// Can store 19 chars + '\0'</span>
+
+<span class="comment">// With initialization</span>
+<span class="type">char</span> name[] = <span class="string">"John"</span>;
+
+<span class="comment">// As pointer</span>
+<span class="type">char</span> *msg = <span class="string">"Hello"</span>;
+
+<span class="comment">// Array of strings</span>
+<span class="type">char</span> names[<span class="number">3</span>][<span class="number">20</span>] = {
+    <span class="string">"Alice"</span>,
+    <span class="string">"Bob"</span>,
+    <span class="string">"Charlie"</span>
+};</code></pre>
+        </div>
+
+        <!-- Q15 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q15. What are the string functions? List and explain with examples.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <h4>String Functions (from string.h):</h4>
+            <table>
+                <thead>
+                    <tr><th>Function</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>strlen(str)</td><td>Returns string length</td></tr>
+                    <tr><td>strcpy(dest, src)</td><td>Copies string</td></tr>
+                    <tr><td>strcat(dest, src)</td><td>Concatenates strings</td></tr>
+                    <tr><td>strcmp(s1, s2)</td><td>Compares strings</td></tr>
+                    <tr><td>strrev(str)</td><td>Reverses string</td></tr>
+                    <tr><td>strlwr(str)</td><td>Converts to lowercase</td></tr>
+                    <tr><td>strupr(str)</td><td>Converts to uppercase</td></tr>
+                </tbody>
+            </table>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+<span class="keyword">#include</span> &lt;string.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">char</span> str1[<span class="number">50</span>] = <span class="string">"Hello"</span>;
+    <span class="type">char</span> str2[<span class="number">50</span>] = <span class="string">"World"</span>;
+    <span class="type">char</span> str3[<span class="number">50</span>];
+    
+    <span class="comment">// strlen() - length</span>
+    <span class="func">printf</span>(<span class="string">"Length of '%s' = %lu\n"</span>, str1, <span class="func">strlen</span>(str1));
+    
+    <span class="comment">// strcpy() - copy</span>
+    <span class="func">strcpy</span>(str3, str1);
+    <span class="func">printf</span>(<span class="string">"After strcpy: str3 = %s\n"</span>, str3);
+    
+    <span class="comment">// strcat() - concatenate</span>
+    <span class="func">strcat</span>(str1, <span class="string">" "</span>);
+    <span class="func">strcat</span>(str1, str2);
+    <span class="func">printf</span>(<span class="string">"After strcat: %s\n"</span>, str1);
+    
+    <span class="comment">// strcmp() - compare</span>
+    <span class="type">int</span> result = <span class="func">strcmp</span>(<span class="string">"apple"</span>, <span class="string">"banana"</span>);
+    <span class="func">printf</span>(<span class="string">"strcmp result: %d\n"</span>, result);
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q16 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q16. How to compare strings in C?</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <p><strong>strcmp() function:</strong></p>
+            <ul>
+                <li>Returns 0 if strings are equal</li>
+                <li>Returns &lt;0 if str1 &lt; str2</li>
+                <li>Returns &gt;0 if str1 &gt; str2</li>
+            </ul>
+            
+            <h4>Example:</h4>
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+<span class="keyword">#include</span> &lt;string.h&gt;
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">char</span> str1[] = <span class="string">"apple"</span>;
+    <span class="type">char</span> str2[] = <span class="string">"banana"</span>;
+    <span class="type">char</span> str3[] = <span class="string">"apple"</span>;
+    
+    <span class="type">int</span> result;
+    
+    <span class="comment">// Compare str1 and str2</span>
+    result = <span class="func">strcmp</span>(str1, str2);
+    
+    <span class="keyword">if</span> (result == <span class="number">0</span>) {
+        <span class="func">printf</span>(<span class="string">"%s and %s are equal\n"</span>, str1, str2);
+    } 
+    <span class="keyword">else if</span> (result &lt; <span class="number">0</span>) {
+        <span class="func">printf</span>(<span class="string">"'%s' comes before '%s'\n"</span>, str1, str2);
+    } 
+    <span class="keyword">else</span> {
+        <span class="func">printf</span>(<span class="string">"'%s' comes after '%s'\n"</span>, str1, str2);
+    }
+    
+    <span class="comment">// Compare str1 and str3</span>
+    <span class="keyword">if</span> (<span class="func">strcmp</span>(str1, str3) == <span class="number">0</span>) {
+        <span class="func">printf</span>(<span class="string">"%s and %s are equal\n"</span>, str1, str3);
+    }
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+        <!-- Q17 -->
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Q17. Program to reverse words in a given string.</h3>
+            
+            <span class="answer-label">Answer:</span>
+            
+            <pre><span class="lang-label">C</span><code><span class="keyword">#include</span> &lt;stdio.h&gt;
+<span class="keyword">#include</span> &lt;string.h&gt;
+
+<span class="comment">// Function to reverse string portion</span>
+<span class="type">void</span> <span class="func">reverse</span>(<span class="type">char</span> str[], <span class="type">int</span> start, <span class="type">int</span> end) {
+    <span class="type">char</span> temp;
+    
+    <span class="keyword">while</span> (start &lt; end) {
+        temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+<span class="comment">// Function to reverse words</span>
+<span class="type">void</span> <span class="func">reverseWords</span>(<span class="type">char</span> str[]) {
+    <span class="type">int</span> len = <span class="func">strlen</span>(str);
+    <span class="type">int</span> start = <span class="number">0</span>;
+    <span class="type">int</span> i;
+    
+    <span class="comment">// Step 1: Reverse entire string</span>
+    <span class="func">reverse</span>(str, <span class="number">0</span>, len - <span class="number">1</span>);
+    
+    <span class="comment">// Step 2: Reverse each word</span>
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;= len; i++) {
+        <span class="keyword">if</span> (str[i] == <span class="string">' '</span> || str[i] == <span class="string">'\0'</span>) {
+            <span class="func">reverse</span>(str, start, i - <span class="number">1</span>);
+            start = i + <span class="number">1</span>;
+        }
+    }
+}
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="type">char</span> str[<span class="number">100</span>] = <span class="string">"Hello World Program"</span>;
+    
+    <span class="func">printf</span>(<span class="string">"Original: %s\n"</span>, str);
+    
+    <span class="func">reverseWords</span>(str);
+    
+    <span class="func">printf</span>(<span class="string">"Reversed: %s\n"</span>, str);
+    <span class="comment">// Output: Program World Hello</span>
+    
+    <span class="keyword">return</span> <span class="number">0</span>;
+}</code></pre>
+        </div>
+
+    </div>
+</body>
+</html>
