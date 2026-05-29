@@ -1,52 +1,34 @@
-# 🏛️ C Systems Programming & Logic Foundation
+# C Programming Journey 🚀
 
-> *A structured repository containing 12 fundamental system modules and algorithms implemented in C. This codebase represents the transition from basic syntax to low-level logic building.*
+This repository contains my practice codes and projects while learning C as my **first programming language**. 
 
-![Language](https://img.shields.io/badge/Language-C99-00599C.svg)
-![Focus](https://img.shields.io/badge/Focus-Memory%20%26%20Logic-red.svg)
-![Status](https://img.shields.io/badge/Status-Completed-success.svg)
-
-## 📂 Project Index
-
-I have categorized the projects based on the engineering concepts they demonstrate.
-
-### 🔹 Financial & Utility Systems
-| File Name | Module Name | Key Concept |
-| :--- | :--- | :--- |
-| `10_banking_program.c` | **Banking Ledger System** | State Management, Conditionals, Error Handling |
-| `01_shopping_cart_program.c` | **E-Commerce Cart Logic** | Arrays, Loops, Iteration |
-| `04_compund_intrest_calculator.c` | **Financial Growth Engine** | Math Library (`math.h`), Exponential Logic |
-| `12_digital_clock_program.c` | **Real-Time Clock** | System Time (`time.h`), Infinite Loops (`sleep`) |
-| `07_calculator_program.c` | **Arithmetic Engine** | Switch-Case Logic, Modular Functions |
-
-### 🔹 Simulation & Game Theory
-| File Name | Module Name | Key Concept |
-| :--- | :--- | :--- |
-| `08_number_guessing_game.c` | **Stochastic Number Generator** | Randomization (`srand`), Binary Search Logic |
-| `09_rock_paper_scissors.c` | **Game Loop Simulation** | Input Validation, Game States |
-| `11_quiz_game.c` | **Knowledge Engine** | Structs, String Comparison |
-| `02_mad_libs_game.c` | **String Parser** | String Manipulation, Buffer Handling |
-
-### 🔹 Unit Converters & Math
-| File Name | Module Name | Key Concept |
-| :--- | :--- | :--- |
-| `06_temperature_program.c` | **Thermodynamics Converter** | Floating Point Precision |
-| `05_weight_calculator_program.c` | **Mass Unit Conversion** | Logic Gates |
-| `03_circle_calculator_program.c` | **Geometric Calculator** | Constant Definitions (`PI`), Math Logic |
+All the concepts and projects in this repository were learned and built by completing the **C Programming Course** by [Bro Code on YouTube](https://www.youtube.com/@BroCodez).
 
 ---
 
-## 🛠️ Technical Highlights
+## 📂 Project List
 
-This repository serves as proof of proficiency in:
-*   **Memory Management:** Understanding stack allocation for variables and arrays.
-*   **Control Flow:** Complex `switch-case`, `while`, and `do-while` implementations.
-*   **Pointers & References:** Passing data by reference to optimize performance.
-*   **Standard Libraries:** Utilization of `<math.h>`, `<time.h>`, and `<string.h>`.
+Here is a list of the simple programs and games I built during the course:
 
-## 🚀 Future Roadmap
-This C foundation lays the groundwork for my transition into **High-Performance C++** and **High-Frequency Trading (HFT)** systems.
+*   **01_shopping_cart_program.c**: A simple interactive shopping cart program.
+*   **02_mad_libs_game.c**: A fun Mad Libs game using string inputs.
+*   **03_circle_calculator_program.c**: Calculates the circumference and area of a circle.
+*   **04_compund_intrest_calculator.c**: A compound interest calculator.
+*   **05_weight_calculator_program.c**: Converts weights between different units.
+*   **06_temperature_program.c**: A temperature converter (Celsius and Fahrenheit).
+*   **07_calculator_program.c**: A simple console calculator.
+*   **08_number_guessing_game.c**: A random number guessing game.
+*   **09_rock_paper_scissors.c**: Play Rock Paper Scissors against the computer.
+*   **10_banking_program.c**: A mock banking program with deposit, withdraw, and balance check options.
+*   **11_quiz_game.c**: A console-based quiz game.
+*   **12_digital_clock_program.c**: A simple digital clock implementation.
+*   **test.c**: Scratchpad/test file for trying out new C syntax.
 
-*   [x] Master C Syntax
-*   [x] Build 12 Logic Projects
+---
 
+## 🛠️ What I Learned
+*   Basic syntax, variables, and data types
+*   Control flow (conditionals, loops, switch cases)
+*   Functions and scope
+*   Arrays and strings
+*   Structures (structs)
