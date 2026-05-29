@@ -2,6 +2,8 @@
 
 This repository contains my practice codes, projects, and exam preparation materials while learning C as my **first programming language**.
 
+🌐 **Exam Prep Web Portal**: [c-programming-clg-exam.vercel.app](https://c-programming-clg-exam.vercel.app/)
+
 All the concepts and projects in this repository were learned and built by completing the **C Programming Course** by [Bro Code on YouTube](https://www.youtube.com/@BroCodez).
 
 ---
@@ -32,6 +34,7 @@ Contains all the interactive games and utility projects:
 
 ### 📝 [exam_prep/](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language(clg)/exam_prep)
 A comprehensive web portal containing notes, unit-wise question banks, and study guides for college end-term C programming exams (FPL/SPPU).
+*   **Live Web Link**: [c-programming-clg-exam.vercel.app](https://c-programming-clg-exam.vercel.app/)
 *   **[index.html](file:///C:/Users/apela-dev/.gemini/antigravity-ide/scratch/C-language(clg)/exam_prep/index.html)**: The homepage containing notes, Mermaid flowcharts, and study guides.
 *   **QB Files**: Question banks for each of the 5 units with detailed answers.
 
